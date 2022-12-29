@@ -8,10 +8,19 @@ import {AuthService} from "../services/auth.service";
 })
 export class LoginComponent implements OnInit {
 
+  isLogged: boolean;
+
   constructor(public authService: AuthService) {
   }
 
   ngOnInit(): void {
   }
 
+  login() {
+    this.authService.GoogleAuth().then((success) => this.isLogged = success);
+  }
+
+  logout() {
+    this.authService.signOut().then(() => this.isLogged = false);
+  }
 }

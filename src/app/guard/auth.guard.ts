@@ -20,7 +20,7 @@ export class AuthGuard implements CanActivate {
         if (!user) {
           console.error('user not authorizate!');
 
-          this.router.navigate(['/login']);
+          this.router.navigate(['/']);
           obs.next(false);
         }
 
