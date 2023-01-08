@@ -1,6 +1,14 @@
-<p>sidebar works!</p>
-<div class="sidebar-buttons">
-  <a routerLink="/">MAIN PAGE</a>
-  <a routerLink="/profile">PROFILE</a>
-  <app-login></app-login>
-</div>
+<nav class="navbar">
+  <img src="https://cdn.pixabay.com/photo/2014/04/03/00/41/race-car-309123_960_720.png" alt="W3Schools.com">
+  <a href="/" title="Wyszukiwarka przejazdów"><i class="fa fa-car"></i></a>
+  <a href="/" title="Zgłoszenia"><i class="fa fa-users"></i></a>
+  <a href="/" title="Oceny użytkowników"><i class="fa fa-user"></i></a>
+  <a href="/" title="Zaloguj się" *ngIf="!isLogged" (click)="login()">
+    <i class="fa fa-google"></i>
+  </a>
+  <a href="/" title="Wyloguj się" *ngIf="isLogged" (click)="logout()">
+    <img src="https://img.icons8.com/color/16/000000/google-logo.png" alt="Google">
+    Logout
+  </a>
+
+</nav>
