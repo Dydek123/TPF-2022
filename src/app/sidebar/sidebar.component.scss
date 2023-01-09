@@ -1,8 +1,30 @@
-.sidebar-buttons {
+.navbar {
   display: flex;
   flex-direction: column;
+  text-align: center;
+  height: 100vh;
+  width: 100%;
+  background: #6279FF;
+  border: 1px solid #000000;
+  box-shadow: 3px 3px 4px rgba(0, 0, 0, 0.25);
 }
 
-a {
+.active-tab {
+  background: rgba(246, 248, 255, 0.65);
+}
+
+.navbar > a {
+  padding: 20px;
   color: black;
+}
+
+.navbar > img {
+  width: 80px;
+  height: 80px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.navbar > a:hover {
+  color: rgb(102, 101, 101);
 }
