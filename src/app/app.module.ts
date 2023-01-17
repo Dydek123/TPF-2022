@@ -9,12 +9,19 @@ import {ProfileComponent} from './components/profile/profile.component';
 import {environment} from "../environments/environment";
 import {AngularFireModule} from "@angular/fire/compat";
 import {AngularFireAuthModule} from "@angular/fire/compat/auth";
+import {SearchPanelComponent} from './components/search-panel/search-panel.component';
+import {CardComponent} from './components/card/card.component';
+import {ProfileDetailsComponent} from './components/profile-details/profile-details.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SidebarComponent,
     MainPageComponent,
+    ProfileComponent,
+    SearchPanelComponent,
+    CardComponent,
+    ProfileDetailsComponent
     ProfileComponent
   ],
   imports: [
