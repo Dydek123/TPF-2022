@@ -9,15 +9,13 @@ import {ProfileComponent} from './components/profile/profile.component';
 import {environment} from "../environments/environment";
 import {AngularFireModule} from "@angular/fire/compat";
 import {AngularFireAuthModule} from "@angular/fire/compat/auth";
-import {LoginComponent} from './components/login/login.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SidebarComponent,
     MainPageComponent,
-    ProfileComponent,
-    LoginComponent
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
