@@ -1,0 +1,124 @@
+.details-panel {
+  display: flex;
+  flex-direction: column;
+  height: 90vh;
+  padding: 0.7em;
+}
+
+.details-panel {
+  background: #FFFFFF;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 25px;
+  margin: 2em;
+}
+
+#details-panel-img {
+  height: 80px !important;
+  width: 80px !important;
+}
+
+#details {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+#details > img {
+  border-radius: 100px;
+  height: 44px;
+  width: 44px;
+  margin-right: 10px;
+}
+
+#info > div > p {
+  font-weight: bold;
+}
+
+#info > div > p > span {
+  font-weight: 100;
+}
+
+#info > div {
+  display: flex;
+  justify-content: space-between;
+}
+
+#info {
+  margin: 5px;
+}
+
+#travel-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 40%;
+}
+
+#travel-info > div > div > p {
+  font-weight: bold;
+}
+
+#travel-info > div > div > p > span {
+  font-weight: 100;
+}
+
+#travel-info > div > div {
+  padding: 1em;
+}
+
+#travel-info > div {
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  margin: 1em;
+}
+
+.map-container {
+  background-color: #d6d6d6;
+  filter: drop-shadow(0px 2px 2px rgba(0, 0, 0, 0.25));
+  border-radius: 25px;
+  height: 60%;
+}
+
+#details-wrapper {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+#mark-wrapper {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.comment-button {
+  background-color: #6279FF;
+  border-radius: 15px;
+  border: none;
+  width: 10vw;
+  height: 3em;
+  font-weight: bold;
+  color: white;
+}
+
+.comment-button:hover {
+  background-color: #7f92fa;
+}
+
+#comment-section > h2 {
+  margin: 10px;
+}
+
+#warning-button {
+  background-color: #FF6262;
+}
+
+#warning-button:hover {
+  background-color: #fd8181;
+}
+
+#details > i {
+  color: #0C820A;
+}

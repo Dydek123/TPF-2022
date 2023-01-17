@@ -1,91 +1,9 @@
 <div class="page-container">
   <section class="search-panel">
-    <div class="search-div">
-      <input placeholder="Twoje przejazdy">
-      <div>
-        <button><i class="fa fa-car"></i></button>
-        <button><i class="fa fa-filter"></i></button>
-      </div>
-    </div>
-
+    <app-search-panel></app-search-panel>
     <span class="divider"></span>
-
-    <div class="user-cards-container">
-      <div class="user-card">
-        <div id="details">
-          <img
-            src="https://st3.depositphotos.com/9998432/13335/v/600/depositphotos_133352010-stock-illustration-default-placeholder-man-and-woman.jpg"
-            alt="image placeholder">
-          <h3>Jan Kowalski</h3>
-          <i class="fa fa-check"></i>
-        </div>
-        <div id="info">
-          <div>
-            <p>Data</p>
-            <span>10.10.2022</span>
-          </div>
-          <div>
-            <p>Trasa</p>
-            <span>Kraków -> Warszawa</span>
-          </div>
-          <div>
-            <p>Cena</p>
-            <span>40zł</span>
-          </div>
-        </div>
-      </div>
-    </div>
-
+    <app-card></app-card>
   </section>
 
-  <section class="details-panel">
-    <div id="details">
-      <img id="details-panel-img"
-           src="https://st3.depositphotos.com/9998432/13335/v/600/depositphotos_133352010-stock-illustration-default-placeholder-man-and-woman.jpg"
-           alt="image placeholder">
-      <div id="details-wrapper">
-        <h2>Jan Kowalski</h2>
-        <div>
-          <button class="comment-button">Zgłoszenia</button>
-          <button class="comment-button" id="warning-button">Odwołaj</button>
-        </div>
-      </div>
-    </div>
-
-    <div id="travel-info">
-      <div>
-        <div>
-          <p>Data</p>
-          <span>10.10.2022</span>
-        </div>
-        <div>
-          <p>Godzina</p>
-          <span>13:15</span>
-        </div>
-        <div>
-          <p>Wyjazd</p>
-          <span>Galeria M1</span>
-        </div>
-      </div>
-
-      <div>
-        <div>
-          <p>Czas trwania</p>
-          <span>120 min</span>
-        </div>
-        <div>
-          <p>Pojazd</p>
-          <span>Toyota Rav-4</span>
-        </div>
-        <div>
-          <p>Miejsca</p>
-          <span>3</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="map-container">
-      Mapka
-    </div>
-  </section>
+  <app-profile-details></app-profile-details>
 </div>
