@@ -1,0 +1,196 @@
+.search-panel {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 30%;
+}
+
+.details-panel {
+  display: flex;
+  flex-direction: column;
+  width: 63%;
+  height: 90vh;
+  padding: 0.7em;
+}
+
+.page-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.user-card {
+  background-color: white;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  padding: 0.7em;
+  margin: 1em;
+  border-radius: 20px;
+}
+
+.details-panel {
+  background: #FFFFFF;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 25px;
+  margin: 2em;
+}
+
+#details-panel-img {
+  height: 80px !important;
+  width: 80px !important;
+}
+
+#details {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+#details > img {
+  border-radius: 100px;
+  height: 44px;
+  width: 44px;
+  margin-right: 10px;
+}
+
+#info > div > p {
+  font-weight: bold;
+}
+
+#info > div > p > span {
+  font-weight: 100;
+}
+
+#info > div {
+  display: flex;
+  justify-content: space-between;
+}
+
+#info {
+  margin: 5px;
+}
+
+.user-cards-container {
+  overflow: auto;
+  height: 70%;
+}
+
+.search-div {
+  display: flex;
+  width: 100%;
+  margin: 10px 2px 10px 2px;
+  justify-content: space-between;
+  margin: 10px;
+}
+
+.search-div > div {
+  display: flex;
+}
+
+.search-div > div > button {
+  border: none;
+  background: none;
+  height: 44px;
+  width: 44px;
+}
+
+.search-div > div > button:hover, a:hover {
+  color: rgb(102, 101, 101);
+}
+
+.search-div > div > button > i {
+  border: none;
+  background: none;
+  width: 44px;
+  font-size: 20px;
+}
+
+input {
+  border: 0px;
+  width: 100%;
+}
+
+#travel-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 40%;
+}
+
+#travel-info > div > div > p {
+  font-weight: bold;
+}
+
+#travel-info > div > div > p > span {
+  font-weight: 100;
+}
+
+#travel-info > div > div {
+  padding: 1em;
+}
+
+#travel-info > div {
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  margin: 1em;
+}
+
+.map-container {
+  background-color: #d6d6d6;
+  filter: drop-shadow(0px 2px 2px rgba(0, 0, 0, 0.25));
+  border-radius: 25px;
+  height: 60%;
+}
+
+.divider {
+  border-bottom: 1px solid black;
+  margin: 10px;
+  width: -moz-available;
+  display: inline-block;
+}
+
+.star-container {
+  color: #FEC107;
+}
+
+#mark-wrapper {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+#details-wrapper {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.comment-button {
+  background-color: #6279FF;
+  border-radius: 15px;
+  border: none;
+  width: 10vw;
+  height: 3em;
+  font-weight: bold;
+  color: white;
+}
+
+.comment-button:hover {
+  background-color: #7f92fa;
+}
+
+#comment-section > h2 {
+  margin: 10px;
+}
+
+#warning-button {
+  background-color: #FF6262;
+}
+
+#warning-button:hover {
+  background-color: #fd8181;
+}
+
+#details > i {
+  color: #0C820A;
+}

@@ -3,12 +3,11 @@
   <a href="/" title="Wyszukiwarka przejazdów"><i class="fa fa-car"></i></a>
   <a href="/" title="Zgłoszenia"><i class="fa fa-users"></i></a>
   <a href="/" title="Oceny użytkowników"><i class="fa fa-user"></i></a>
-  <a href="/" title="Zaloguj się" *ngIf="!isLogged" (click)="login()">
+  <a title="Zaloguj się" *ngIf="!isLogged" (click)="login()">
     <i class="fa fa-google"></i>
   </a>
-  <a href="/" title="Wyloguj się" *ngIf="isLogged" (click)="logout()">
+  <a title="Wyloguj się" *ngIf="isLogged" (click)="logout()">
     <img src="https://img.icons8.com/color/16/000000/google-logo.png" alt="Google">
     Logout
   </a>
-
 </nav>
