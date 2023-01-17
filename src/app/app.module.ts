@@ -22,6 +22,7 @@ import {ProfileDetailsComponent} from './components/profile-details/profile-deta
     SearchPanelComponent,
     CardComponent,
     ProfileDetailsComponent
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
