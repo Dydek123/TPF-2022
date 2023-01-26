@@ -12,6 +12,7 @@ import {AngularFireAuthModule} from "@angular/fire/compat/auth";
 import {SearchPanelComponent} from './components/search-panel/search-panel.component';
 import {CardComponent} from './components/card/card.component';
 import {ProfileDetailsComponent} from './components/profile-details/profile-details.component';
+import {NewTravellComponent} from './components/new-travell/new-travell.component';
 
 @NgModule({
   declarations: [
@@ -21,8 +22,8 @@ import {ProfileDetailsComponent} from './components/profile-details/profile-deta
     ProfileComponent,
     SearchPanelComponent,
     CardComponent,
-    ProfileDetailsComponent
-    ProfileComponent
+    ProfileDetailsComponent,
+    NewTravellComponent
   ],
   imports: [
     BrowserModule,

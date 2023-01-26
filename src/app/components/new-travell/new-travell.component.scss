@@ -1,0 +1,64 @@
+input {
+  border: 0px;
+  width: 100%;
+}
+
+.comment-button {
+  background-color: #6279FF;
+  border-radius: 15px;
+  border: none;
+  width: 25%;
+  height: 3em;
+  font-weight: bold;
+  color: white;
+}
+
+.comment-button:hover {
+  background-color: #7f92fa;
+}
+
+#comment-section > h2 {
+  margin: 10px;
+}
+
+.my-form > input {
+  background: #F6F8FF;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+  padding: 10px;
+  margin: 10px 0px 10px 0px;
+}
+
+.form-panel {
+  display: flex;
+  flex-direction: column;
+  width: 85%;
+  height: 90vh;
+  padding: 0.7em;
+  background: #FFFFFF;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 25px;
+  margin: 2em;
+  margin-right: auto;
+  margin-left: auto;
+  justify-content: center;
+}
+
+.form-panel > h2 {
+  text-align: center;
+  padding: 1em;
+}
+
+.my-form > button {
+  width: 35%;
+  margin-top: 1em;
+}
+
+.my-form {
+  display: flex;
+  flex-direction: column;
+  width: inherit;
+  margin-right: auto;
+  margin-left: auto;
+  width: 40%;
+  align-items: center;
+}
