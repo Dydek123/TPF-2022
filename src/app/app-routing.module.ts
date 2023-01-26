@@ -5,12 +5,14 @@ import {ProfileComponent} from "./components/profile/profile.component";
 import {AuthGuard} from "./guard/auth.guard";
 import {NewTravellComponent} from "./components/new-travell/new-travell.component";
 import {UserMarksComponent} from "./components/user-marks/user-marks.component";
+import {SearchTravelComponent} from "./components/search-travel/search-travel.component";
 
 const routes: Routes = [
   {path: '', component: MainPageComponent},
   {path: 'profile', component: ProfileComponent, canActivate: [AuthGuard]},
   {path: 'nowy-przejazd', component: NewTravellComponent, canActivate: [AuthGuard]},
   {path: 'oceny', component: UserMarksComponent, canActivate: [AuthGuard]},
+  {path: 'szukaj', component: SearchTravelComponent, canActivate: [AuthGuard]},
 ];
 
 

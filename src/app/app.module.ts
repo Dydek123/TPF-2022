@@ -14,6 +14,7 @@ import {CardComponent} from './components/card/card.component';
 import {ProfileDetailsComponent} from './components/profile-details/profile-details.component';
 import {NewTravellComponent} from './components/new-travell/new-travell.component';
 import {UserMarksComponent} from './components/user-marks/user-marks.component';
+import {SearchTravelComponent} from './components/search-travel/search-travel.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import {UserMarksComponent} from './components/user-marks/user-marks.component';
     CardComponent,
     ProfileDetailsComponent,
     NewTravellComponent,
-    UserMarksComponent
+    UserMarksComponent,
+    SearchTravelComponent
   ],
   imports: [
     BrowserModule,

@@ -20,6 +20,9 @@ export class SearchPanelComponent implements OnInit {
       case Context.PROFILE:
         this.placeholder = 'Twoje przejazdy';
         break;
+      case Context.TRAVEL_SEARCH:
+        this.placeholder = 'Przejazdy';
+        break;
     }
   }
 }
