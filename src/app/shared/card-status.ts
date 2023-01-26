@@ -1,0 +1,5 @@
+export enum CardStatus {
+  DETAILED,
+  SIMPLE_MARKS,
+  SIMPLE_WITH_DESCRIPTION
+}

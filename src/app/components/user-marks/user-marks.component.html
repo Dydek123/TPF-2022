@@ -1,0 +1,37 @@
+<div class="page-container">
+  <section class="search-panel">
+
+    <app-search-panel [context]="context"></app-search-panel>
+    <span class="divider"></span>
+    <app-card [status]="cardStatus.SIMPLE_MARKS"></app-card>
+
+  </section>
+
+  <section class="details-panel">
+    <div id="details">
+      <img id="details-panel-img"
+           src="https://st3.depositphotos.com/9998432/13335/v/600/depositphotos_133352010-stock-illustration-default-placeholder-man-and-woman.jpg"
+           alt="image placeholder">
+      <div id="details-wrapper">
+        <div>
+          <h2>Jan Kowalski</h2>
+          <div class="star-container">
+            <!-- Tu nie wiem jak to zrobić bo to zależy od impoementacji. Można potem zrobić dwie klasy css np. jedna bedzie wypełniała na żółto a druga nie -->
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+          </div>
+        </div>
+        <button class="comment-button">Wystaw komentarz</button>
+      </div>
+    </div>
+
+    <div id="comment-section">
+      <h2>Komentarze</h2>
+      <span class="divider"></span>
+      <app-card [status]="cardStatus.SIMPLE_WITH_DESCRIPTION"></app-card>
+    </div>
+  </section>
+</div>

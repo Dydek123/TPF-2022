@@ -1,4 +1,5 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {CardStatus} from "../../shared/card-status";
 
 @Component({
   selector: 'app-card',
@@ -6,7 +7,8 @@ import {Component, OnInit} from '@angular/core';
   styleUrls: ['./card.component.scss']
 })
 export class CardComponent implements OnInit {
-
+  CardStatus = CardStatus;
+  @Input() status: CardStatus;
   constructor() {
   }
 

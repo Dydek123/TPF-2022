@@ -4,10 +4,23 @@
       <img
         src="https://st3.depositphotos.com/9998432/13335/v/600/depositphotos_133352010-stock-illustration-default-placeholder-man-and-woman.jpg"
         alt="image placeholder">
-      <h3>Jan Kowalski</h3>
-      <i class="fa fa-check"></i>
+      <div id="mark-wrapper" *ngIf="status === CardStatus.SIMPLE_WITH_DESCRIPTION; else detailed">
+        <h3>Jan Kowalski</h3>
+        <div class="star-container">
+          <!-- Tu nie wiem jak to zrobić bo to zależy od impoementacji. Można potem zrobić dwie klasy css np. jedna bedzie wypełniała na żółto a druga nie -->
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star"></i>
+        </div>
+      </div>
+      <ng-template #detailed>
+        <h3>Jan Kowalski</h3>
+        <i class="fa fa-check" *ngIf="status === CardStatus.DETAILED"></i>
+      </ng-template>
     </div>
-    <div id="info">
+    <div id="info" *ngIf="status === CardStatus.DETAILED">
       <div>
         <p>Data</p>
         <span>10.10.2022</span>
@@ -20,6 +33,25 @@
         <p>Cena</p>
         <span>40zł</span>
       </div>
+    </div>
+
+    <div id="info" *ngIf="status === CardStatus.SIMPLE_MARKS">
+      <div>
+        <p>Ocena</p>
+        <div class="star-container">
+          <!-- Tu nie wiem jak to zrobić bo to zależy od impoementacji. Można potem zrobić dwie klasy css np. jedna bedzie wypełniała na żółto a druga nie -->
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star"></i>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="status === CardStatus.SIMPLE_WITH_DESCRIPTION">
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+        magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+        labore et dolore magna aliqua</p>
     </div>
   </div>
 </div>

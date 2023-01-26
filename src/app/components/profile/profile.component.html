@@ -1,8 +1,8 @@
 <div class="page-container">
   <section class="search-panel">
-    <app-search-panel></app-search-panel>
+    <app-search-panel [context]="context"></app-search-panel>
     <span class="divider"></span>
-    <app-card></app-card>
+    <app-card [status]="cardStatus"></app-card>
   </section>
 
   <app-profile-details></app-profile-details>
