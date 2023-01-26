@@ -13,6 +13,7 @@ import {SearchPanelComponent} from './components/search-panel/search-panel.compo
 import {CardComponent} from './components/card/card.component';
 import {ProfileDetailsComponent} from './components/profile-details/profile-details.component';
 import {NewTravellComponent} from './components/new-travell/new-travell.component';
+import {UserMarksComponent} from './components/user-marks/user-marks.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import {NewTravellComponent} from './components/new-travell/new-travell.componen
     SearchPanelComponent,
     CardComponent,
     ProfileDetailsComponent,
-    NewTravellComponent
+    NewTravellComponent,
+    UserMarksComponent
   ],
   imports: [
     BrowserModule,
