@@ -14,6 +14,7 @@ import {CardComponent} from './components/card/card.component';
 import {ProfileDetailsComponent} from './components/profile-details/profile-details.component';
 import {NewTravellComponent} from './components/new-travell/new-travell.component';
 import {UserMarksComponent} from './components/user-marks/user-marks.component';
+import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import {UserMarksComponent} from './components/user-marks/user-marks.component';
     BrowserModule,
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    FontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

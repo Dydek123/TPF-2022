@@ -8,9 +8,9 @@ import {UserMarksComponent} from "./components/user-marks/user-marks.component";
 
 const routes: Routes = [
   {path: '', component: MainPageComponent},
-  {path: 'profile', component: ProfileComponent, canActivate: [AuthGuard]},
-  {path: 'nowy-przejazd', component: NewTravellComponent, canActivate: [AuthGuard]},
-  {path: 'oceny', component: UserMarksComponent, canActivate: [AuthGuard]},
+  {path: 'profile', component: ProfileComponent},
+  {path: 'nowy-przejazd', component: NewTravellComponent},
+  {path: 'oceny', component: UserMarksComponent},
 ];
 
 
