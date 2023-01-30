@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {TravellService} from "../../services/travell.service";
+import {AuthService} from "../../services/auth.service";
 
 @Component({
   selector: 'app-new-travell',
@@ -14,19 +15,21 @@ export class NewTravellComponent implements OnInit {
   errorMessage: string;
 
   constructor(private formBuilder: FormBuilder,
-              private travellService: TravellService) {
+              private travellService: TravellService,
+              private authService: AuthService) {
   }
 
   ngOnInit(): void {
-    this.travellService.getAll().subscribe(travel => console.log(travel))
     this.form = this.formBuilder.group({
-      destination: [Validators.required],
-      startPoint: [Validators.required],
-      date: [Validators.required],
-      freeSpace: [Validators.required],
+      destination: ['', Validators.required],
+      startPoint: ['', Validators.required],
+      date: ['', Validators.required],
+      freeSpace: ['', Validators.required],
       car: [],
-      duration: []
+      duration: [],
+      userId: []
     })
+    this.setUserId();
   }
 
   onSubmit() {
@@ -44,5 +47,11 @@ export class NewTravellComponent implements OnInit {
       this.successSubmit = false;
       this.form.reset();
     }, 5000);
+  }
+
+  private setUserId() {
+    this.authService.getUser().subscribe(user => {
+      this.form.patchValue({userId: user?.uid});
+    })
   }
 }

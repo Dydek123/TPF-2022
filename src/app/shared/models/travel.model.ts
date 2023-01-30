@@ -7,4 +7,5 @@ export interface Travel extends Entity {
   freeSpace: number;
   car: string;
   duration: number;
+  userId: string;
 }
