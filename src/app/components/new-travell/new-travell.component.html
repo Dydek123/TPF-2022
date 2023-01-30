@@ -25,6 +25,10 @@
       <input class="did-floating-input" type="number" placeholder="" formControlName="duration">
       <label class="did-floating-label">Czas trwania [min]</label>
     </div>
+    <div class="did-floating-label-content">
+      <input class="did-floating-input" type="number" placeholder="" formControlName="cost">
+      <label class="did-floating-label">Cena [zł]</label>
+    </div>
     <span class="validator-error" *ngIf="errorMessage">  <!-- TODO dodać stylowanie-->
       {{errorMessage}}
     </span>

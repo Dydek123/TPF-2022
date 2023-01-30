@@ -18,6 +18,7 @@ export class TravellService {
   }
 
   add(data: Travel): Observable<Travel> {
+    data.createdOn = new Date();
     return this.http.post<Travel>(this.url, data);
   }
 }

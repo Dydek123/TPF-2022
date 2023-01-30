@@ -1,5 +1,6 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {CardStatus} from "../../shared/card-status";
+import {Travel} from "../../shared/models/travel.model";
 
 @Component({
   selector: 'app-card',
@@ -9,6 +10,9 @@ import {CardStatus} from "../../shared/card-status";
 export class CardComponent implements OnInit {
   CardStatus = CardStatus;
   @Input() status: CardStatus;
+  @Input() travel: Travel;
+  @Output() cardEvent: EventEmitter<Travel> = new EventEmitter<Travel>();
+
   constructor() {
   }
 

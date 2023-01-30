@@ -8,4 +8,5 @@ export interface Travel extends Entity {
   car: string;
   duration: number;
   userId: string;
+  cost: number;
 }

@@ -27,7 +27,8 @@ export class NewTravellComponent implements OnInit {
       freeSpace: ['', Validators.required],
       car: [],
       duration: [],
-      userId: []
+      userId: [],
+      cost: ['', Validators.required]
     })
     this.setUserId();
   }
