@@ -1,0 +1,27 @@
+.search-panel {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 30%;
+}
+
+.page-container {
+  display: flex;
+  flex-direction: row;
+}
+
+input {
+  border: 0px;
+  width: 100%;
+}
+
+.divider {
+  border-bottom: 1px solid black;
+  margin: 10px;
+  width: -moz-available;
+  display: inline-block;
+}
+
+app-profile-details {
+  width: 70%;
+}

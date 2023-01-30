@@ -1,4 +1,5 @@
 export enum Context {
   USERS,
-  PROFILE
+  PROFILE,
+  TRAVEL_SEARCH
 }
