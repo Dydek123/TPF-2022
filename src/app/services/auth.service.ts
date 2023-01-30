@@ -22,7 +22,7 @@ export class AuthService {
       .signInWithPopup(provider)
       .then((result) => {
         if (result.user) {
-          this.router.navigate(['/profile']);
+          this.router.navigate(['/profil']);
           return true;
         } else {
           this.afAuth.signOut();
