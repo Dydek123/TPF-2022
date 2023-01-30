@@ -135,3 +135,44 @@
 #action-button:hover {
   background-color: #10970e;
 }
+
+
+@media only screen and (max-device-width: 420px) {
+  #details-wrapper {
+    flex-direction: column;
+    margin: auto;
+  }
+
+  #details-wrapper > h2 {
+    font-size: 20px;
+  }
+
+  #details-wrapper > div {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+  }
+  #details {
+    flex-direction: column;
+    margin: auto;
+  }
+  #details > img {
+    margin: auto;
+  }
+  .comment-button {
+    width: 25vw;
+  }
+  button + button {
+    margin-top: 5px;
+  }
+  #travel-info > div > div {
+    padding: 0.1em;
+  }
+  #travel-info {
+
+  }
+  #travel-info > div {
+    flex-direction: column;
+    margin: 0.1em;
+  }
+}

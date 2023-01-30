@@ -25,3 +25,17 @@ input {
 app-profile-details {
   width: 70%;
 }
+
+@media only screen and (max-device-width: 420px) {
+  .search-panel {
+    width: 70%;
+    height: 40vh;
+  }
+  .page-container {
+    flex-direction: column;
+  }
+  app-profile-details {
+    width: 70%;
+  }
+
+}
