@@ -1,4 +1,4 @@
-<section class="details-panel">
+<section class="details-panel" *ngIf="travel">
   <div id="details">
     <img id="details-panel-img"
          src="https://st3.depositphotos.com/9998432/13335/v/600/depositphotos_133352010-stock-illustration-default-placeholder-man-and-woman.jpg"
@@ -7,7 +7,7 @@
       <h2>Jan Kowalski</h2>
       <div *ngIf="showButtons">
         <button class="comment-button" (click)="onNotificationClick()">Zgłoszenia</button>
-        <button class="comment-button" id="warning-button">Odwołaj</button>
+        <button class="comment-button" id="warning-button" (click)="deleteTravel()">Odwołaj</button>
       </div>
     </div>
   </div>
@@ -16,30 +16,30 @@
     <div>
       <div>
         <p>Data</p>
-        <span>10.10.2022</span>
+        <span>{{travel.date | date}}</span>
       </div>
       <div>
         <p>Godzina</p>
-        <span>13:15</span>
+        <span>{{travel.date | date:'shortTime'}}</span>
       </div>
       <div>
         <p>Wyjazd</p>
-        <span>Galeria M1</span>
+        <span>{{travel.startPoint}}</span>
       </div>
     </div>
 
     <div>
       <div>
         <p>Czas trwania</p>
-        <span>120 min</span>
+        <span>{{travel.duration}} min</span>
       </div>
       <div>
         <p>Pojazd</p>
-        <span>Toyota Rav-4</span>
+        <span>{{travel.car}}</span>
       </div>
       <div>
         <p>Miejsca</p>
-        <span>3</span>
+        <span>{{travel.freeSpace}}</span>
       </div>
     </div>
   </div>

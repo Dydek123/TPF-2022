@@ -16,6 +16,9 @@ import {NewTravellComponent} from './components/new-travell/new-travell.componen
 import {UserMarksComponent} from './components/user-marks/user-marks.component';
 import {SearchTravelComponent} from './components/search-travel/search-travel.component';
 import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
+import {ReactiveFormsModule} from "@angular/forms";
+import {TravellService} from "./services/travell.service";
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -35,9 +38,11 @@ import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    ReactiveFormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [TravellService],
   bootstrap: [AppComponent]
 })
 export class AppModule {
