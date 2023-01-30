@@ -15,6 +15,7 @@ import {ProfileDetailsComponent} from './components/profile-details/profile-deta
 import {NewTravellComponent} from './components/new-travell/new-travell.component';
 import {UserMarksComponent} from './components/user-marks/user-marks.component';
 import {SearchTravelComponent} from './components/search-travel/search-travel.component';
+import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import {SearchTravelComponent} from './components/search-travel/search-travel.co
     BrowserModule,
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    FontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]
