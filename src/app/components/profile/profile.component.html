@@ -2,8 +2,10 @@
   <section class="search-panel">
     <app-search-panel [context]="context"></app-search-panel>
     <span class="divider"></span>
-    <app-card [status]="cardStatus"></app-card>
+    <ng-container *ngFor="let travel of travels">
+      <app-card [status]="cardStatus" [travel]="travel" (cardEvent)="onCardChanged($event)"></app-card>
+    </ng-container>
   </section>
 
-  <app-profile-details [showButtons]="true"></app-profile-details>
+  <app-profile-details *ngIf="travels" [showButtons]="true" [travel]="selectedTravel"></app-profile-details>
 </div>

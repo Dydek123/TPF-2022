@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Travel} from "../../shared/models/travel.model";
+import {TravellService} from "../../services/travell.service";
 
 @Component({
   selector: 'app-profile-details',
@@ -14,7 +15,7 @@ export class ProfileDetailsComponent implements OnInit {
 
   @Input() travel: Travel | null;
 
-  constructor() {
+  constructor(private travelService: TravellService) {
   }
 
   ngOnInit(): void {
@@ -22,5 +23,11 @@ export class ProfileDetailsComponent implements OnInit {
 
   onNotificationClick() {
     this.showNotifications = !this.showNotifications;
+  }
+
+  deleteTravel() {
+    if (this.travel?.id) {
+      this.travelService.deleteById(this.travel.id).subscribe(travel => console.log(travel))
+    }
   }
 }

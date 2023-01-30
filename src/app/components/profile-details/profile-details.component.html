@@ -7,7 +7,7 @@
       <h2>Jan Kowalski</h2>
       <div *ngIf="showButtons">
         <button class="comment-button" (click)="onNotificationClick()">Zgłoszenia</button>
-        <button class="comment-button" id="warning-button">Odwołaj</button>
+        <button class="comment-button" id="warning-button" (click)="deleteTravel()">Odwołaj</button>
       </div>
     </div>
   </div>

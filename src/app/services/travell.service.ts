@@ -21,4 +21,8 @@ export class TravellService {
     data.createdOn = new Date();
     return this.http.post<Travel>(this.url, data);
   }
+
+  deleteById(id: number): Observable<any> {
+    return this.http.delete(`${this.url}/${id}`);
+  }
 }
