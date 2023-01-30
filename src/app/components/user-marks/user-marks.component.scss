@@ -83,3 +83,58 @@
 #comment-section > h2 {
   margin: 10px;
 }
+
+@media only screen and (max-device-width: 420px) {
+  .page-container {
+    flex-direction: column;
+  }
+  .search-panel {
+    width: 100%;
+    height: 40vh;
+  }
+  .details-panel {
+    width: 90%;
+    margin: auto;
+  }
+  #details {
+    flex-direction: column;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  #details-wrapper {
+    flex-direction: column;
+    margin-right: auto;
+    margin-left: auto;
+    align-items: center;
+  }
+  .comment-button {
+    margin-top: 10px;
+    width: 20vh;
+  }
+  .star-container {
+    width: 20vh;
+    margin-top: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  #details-wrapper > div {
+    margin: auto;
+    width: 20vh;
+  }
+  #details-wrapper > div > h2 {
+    text-align: center;
+  }
+  #details > img {
+    margin-right: 0px;
+  }
+  #comment-section{
+    margin-top: 10px;
+    flex-direction: column;
+  }
+  #comment-section > h2 {
+    text-align: center;
+  }
+
+}
+

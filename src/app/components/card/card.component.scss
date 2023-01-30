@@ -53,3 +53,9 @@
 #details > i {
   color: #0C820A;
 }
+
+@media only screen and (max-device-width: 420px) {
+  .star-container{
+    width: 15vh;
+  }
+}
