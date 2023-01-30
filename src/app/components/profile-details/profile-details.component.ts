@@ -7,6 +7,8 @@ import {Component, Input, OnInit} from '@angular/core';
 })
 export class ProfileDetailsComponent implements OnInit {
 
+  showNotifications: boolean;
+
   @Input() showButtons: boolean;
 
   constructor() {
@@ -15,4 +17,7 @@ export class ProfileDetailsComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  onNotificationClick() {
+    this.showNotifications = !this.showNotifications;
+  }
 }

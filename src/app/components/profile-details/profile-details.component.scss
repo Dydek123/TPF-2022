@@ -122,3 +122,16 @@
 #details > i {
   color: #0C820A;
 }
+
+.notification-wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+#action-button {
+  background-color: #0C820A;
+}
+
+#action-button:hover {
+  background-color: #10970e;
+}
