@@ -34,7 +34,6 @@ export class ProfileComponent implements OnInit {
 
   private getTravels(uid: string) {
     this.travelService.getByUserId(uid).subscribe(travels => {
-      console.log(travels);
       this.travels = travels;
       this.selectedTravel = travels.length > 0 ? travels[0] : null;
     });

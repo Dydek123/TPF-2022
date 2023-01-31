@@ -1,4 +1,5 @@
 import {Entity} from "./entity.model";
+import {UserModel} from "./user.model";
 
 export interface Travel extends Entity {
   destination: string;
@@ -9,4 +10,6 @@ export interface Travel extends Entity {
   duration: number;
   userId: string;
   cost: number;
+
+  user: UserModel;
 }
