@@ -7,5 +7,6 @@
     </ng-container>
   </section>
 
-  <app-profile-details *ngIf="travels" [showButtons]="true" [travel]="selectedTravel"></app-profile-details>
+  <app-profile-details *ngIf="travels" [showButtons]="true" [context]="context"
+                       [travel]="selectedTravel"></app-profile-details>
 </div>

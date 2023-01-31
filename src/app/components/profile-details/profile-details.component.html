@@ -1,14 +1,18 @@
 <section class="details-panel" *ngIf="travel">
   <div id="details" *ngIf="travel.user">
     <img id="details-panel-img"
-         [src]="getUserPicture(travel)"
+         [src]="getUserPicture(travel.user)"
          alt="image placeholder">
     <div id="details-wrapper">
       <h2>{{travel.user.name}}</h2>
-      <div *ngIf="showButtons">
+      <div *ngIf="isProfile">
         <button class="comment-button" (click)="onNotificationClick()">Zgłoszenia</button>
         <button class="comment-button" id="warning-button" (click)="deleteTravel()">Odwołaj</button>
       </div>
+      <div *ngIf="isSearch">
+        <button class="comment-button" (click)="onReservationClick(travel)">Zarezerwuj</button>
+      </div>
+
     </div>
   </div>
 
@@ -49,29 +53,25 @@
   </div>
 
   <div id="comment-section" *ngIf="showNotifications">
-    <div class="notification-wrapper">
+    <div class="notification-wrapper" *ngFor="let reservation of reservationList">
       <div id="details">
         <img
-          src="https://st3.depositphotos.com/9998432/13335/v/600/depositphotos_133352010-stock-illustration-default-placeholder-man-and-woman.jpg"
+          [src]="getUserPicture(reservation.user)"
           alt="image placeholder">
-        <h3>Jan Kowalski</h3>
+        <h3>{{reservation.user.name}}</h3>
+        <i id="check" class="fa fa-check" *ngIf="reservation.isAccepted"></i>
       </div>
-      <div>
-        <button class="comment-button" id="action-button">Potwierdź</button>
-        <button class="comment-button" id="warning-button">Odmów</button>
+      <div *ngIf="reservation.isAccepted; else toAccept">
+        <button class="comment-button" id="warning-button" (click)="cancelReservation(reservation)">Anuluj</button>
       </div>
-    </div>
-    <div class="notification-wrapper">
-      <div id="details">
-        <img
-          src="https://st3.depositphotos.com/9998432/13335/v/600/depositphotos_133352010-stock-illustration-default-placeholder-man-and-woman.jpg"
-          alt="image placeholder">
-        <h3>Jan Kowalski</h3>
-        <i id="check" class="fa fa-check"></i>
-      </div>
-      <div>
-        <button class="comment-button" id="warning-button">Anuluj</button>
-      </div>
+      <ng-template #toAccept>
+        <div>
+          <button class="comment-button" id="action-button" [ngClass]="!travelHasFreeSpace() ? 'disabled' : ''"
+                  (click)="acceptReservation(reservation)" [disabled]="!travelHasFreeSpace()">Potwierdź
+          </button><!--TODO dodać style do klasy disabled-->
+          <button class="comment-button" id="warning-button" (click)="deleteReservation(reservation)">Odmów</button>
+        </div>
+      </ng-template>
     </div>
   </div>
 

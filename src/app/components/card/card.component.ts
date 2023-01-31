@@ -21,6 +21,6 @@ export class CardComponent implements OnInit {
   }
 
   getUserPicture(travel: Travel): string {
-    return TravelUtils.getUserPicture(travel);
+    return TravelUtils.getUserPicture(travel.user);
   }
 }
