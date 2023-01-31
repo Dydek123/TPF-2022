@@ -21,6 +21,7 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {ReactiveFormsModule} from "@angular/forms";
 import {TravellService} from "./services/travell.service";
 import {HttpClientModule} from "@angular/common/http";
+import { AddCommentComponent } from './components/add-comment/add-comment.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import {HttpClientModule} from "@angular/common/http";
     ProfileDetailsComponent,
     NewTravellComponent,
     UserMarksComponent,
-    SearchTravelComponent
+    SearchTravelComponent,
+    AddCommentComponent
   ],
   imports: [
     BrowserModule,

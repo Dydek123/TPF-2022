@@ -24,7 +24,7 @@
             <i class="fa fa-star"></i>
           </div>
         </div>
-        <button class="comment-button">Wystaw komentarz</button>
+        <button (click)="togglePopup()" class="comment-button">Wystaw komentarz</button>
       </div>
     </div>
 
@@ -34,4 +34,5 @@
       <app-card [status]="cardStatus.SIMPLE_WITH_DESCRIPTION"></app-card>
     </div>
   </section>
+  <app-add-comment class="popup" *ngIf="showCommentPopup"></app-add-comment>
 </div>
