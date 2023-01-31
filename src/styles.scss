@@ -60,3 +60,15 @@ body {
 .hamburger span::after {
   bottom: -20px;
 }
+
+/*POPUP*/
+.popup {
+  width: 60%;
+  height: 60%;
+  display: flex;
+  position: absolute;
+  background: white;
+  text-align: center;
+  justify-content: center;
+  border: 1px solid;
+}

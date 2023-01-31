@@ -10,6 +10,7 @@ import {CardStatus} from "../../shared/card-status";
 export class UserMarksComponent implements OnInit {
   context: Context = Context.USERS;
   cardStatus = CardStatus;
+  showCommentPopup: boolean = false;
 
   constructor() {
   }
@@ -17,4 +18,7 @@ export class UserMarksComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  togglePopup() {
+    this.showCommentPopup = !this.showCommentPopup;
+  }
 }
