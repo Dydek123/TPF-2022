@@ -45,7 +45,7 @@ import {HttpClientModule} from "@angular/common/http";
     FontAwesomeModule,
     BrowserModule,
     FormsModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
     ReactiveFormsModule,
     HttpClientModule
   ],
