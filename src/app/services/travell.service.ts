@@ -32,4 +32,17 @@ export class TravellService {
   deleteById(id: number | string): Observable<any> {
     return this.http.delete(`${this.url}/${id}`);
   }
+
+  acceptReservation(travel: Travel, isAccepted: boolean) {
+    this.setFreeSpace(travel, isAccepted);
+    return this.http.put<Travel>(this.url + '/' + travel.id, travel);
+  }
+
+  private setFreeSpace(travel: Travel, isAccepted: boolean) {
+    if (isAccepted) {
+      travel.freeSpace--;
+    } else {
+      travel.freeSpace++;
+    }
+  }
 }
