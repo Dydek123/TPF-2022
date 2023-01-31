@@ -18,6 +18,9 @@ import {SearchTravelComponent} from './components/search-travel/search-travel.co
 import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 import {FormsModule} from "@angular/forms";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {ReactiveFormsModule} from "@angular/forms";
+import {TravellService} from "./services/travell.service";
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -43,8 +46,10 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
     BrowserModule,
     FormsModule,
     BrowserAnimationsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [TravellService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

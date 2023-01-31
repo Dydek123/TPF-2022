@@ -4,6 +4,7 @@
   padding: 0.7em;
   margin: 1em;
   border-radius: 20px;
+  cursor: pointer;
 }
 
 .user-cards-container {
@@ -52,4 +53,10 @@
 
 #details > i {
   color: #0C820A;
+}
+
+@media only screen and (max-device-width: 420px) {
+  .star-container{
+    width: 15vh;
+  }
 }

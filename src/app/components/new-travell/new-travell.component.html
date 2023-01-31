@@ -1,32 +1,38 @@
 <section class="form-panel">
   <h2>Dodaj przejazd</h2>
-  <form class="my-form">
+  <form class="my-form" [formGroup]="form" (ngSubmit)="onSubmit()">
     <div class="did-floating-label-content">
-      <input class="did-floating-input" type="text" placeholder="">
+      <input class="did-floating-input" type="text" placeholder="" formControlName="destination">
       <label class="did-floating-label">Miejsce docelowe</label>
     </div>
     <div class="did-floating-label-content">
-      <input class="did-floating-input" type="text" placeholder="">
+      <input class="did-floating-input" type="text" placeholder="" formControlName="startPoint">
       <label class="did-floating-label">Miejsce wyjazdu</label>
     </div>
     <div class="did-floating-label-content">
-      <input class="did-floating-input" type="datetime" placeholder="">
+      <input class="did-floating-input" type="datetime-local" placeholder="" formControlName="date">
       <label class="did-floating-label">Data i godzina</label>
     </div>
     <div class="did-floating-label-content">
-      <input class="did-floating-input" type="number" placeholder="">
+      <input class="did-floating-input" type="number" placeholder="" formControlName="freeSpace">
       <label class="did-floating-label">Ilość miejsc</label>
     </div>
     <div class="did-floating-label-content">
-      <input class="did-floating-input" type="text" placeholder="">
+      <input class="did-floating-input" type="text" placeholder="" formControlName="car">
       <label class="did-floating-label">Pojazd</label>
     </div>
     <div class="did-floating-label-content">
-      <input class="did-floating-input" type="number" placeholder="">
+      <input class="did-floating-input" type="number" placeholder="" formControlName="duration">
       <label class="did-floating-label">Czas trwania [min]</label>
     </div>
-
-    <button class=""> <!-- TODO po 200 z serwera zmienić na class="is_active"-->
+    <div class="did-floating-label-content">
+      <input class="did-floating-input" type="number" placeholder="" formControlName="cost">
+      <label class="did-floating-label">Cena [zł]</label>
+    </div>
+    <span class="validator-error" *ngIf="errorMessage">  <!-- TODO dodać stylowanie-->
+      {{errorMessage}}
+    </span>
+    <button [ngClass]="successSubmit ? 'is_active' : ''" type="submit">
       <span>Dodaj</span>
       <div class="success">
         <svg version="1.1" viewBox="0 0 29.756 29.756" style="enable-background:new 0 0 29.756 29.756;"

@@ -1,4 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
+import {Travel} from "../../shared/models/travel.model";
+import {TravellService} from "../../services/travell.service";
+import {TravelUtils} from "../../shared/travel.utils";
 
 @Component({
   selector: 'app-profile-details',
@@ -11,7 +14,9 @@ export class ProfileDetailsComponent implements OnInit {
 
   @Input() showButtons: boolean;
 
-  constructor() {
+  @Input() travel: Travel | null;
+
+  constructor(private travelService: TravellService) {
   }
 
   ngOnInit(): void {
@@ -19,5 +24,15 @@ export class ProfileDetailsComponent implements OnInit {
 
   onNotificationClick() {
     this.showNotifications = !this.showNotifications;
+  }
+
+  deleteTravel() {
+    if (this.travel?.id) {
+      this.travelService.deleteById(this.travel.id).subscribe(travel => console.log(travel))
+    }
+  }
+
+  getUserPicture(travel: Travel): string {
+    return TravelUtils.getUserPicture(travel);
   }
 }
