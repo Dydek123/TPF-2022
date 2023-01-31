@@ -22,7 +22,7 @@ export class TravellService {
     return this.http.post<Travel>(this.url, data);
   }
 
-  deleteById(id: number): Observable<any> {
+  deleteById(id: number | string): Observable<any> {
     return this.http.delete(`${this.url}/${id}`);
   }
 }

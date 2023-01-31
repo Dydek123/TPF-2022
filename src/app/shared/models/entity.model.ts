@@ -1,5 +1,5 @@
 export class Entity {
-  id?: number;
+  id?: number | string;
   createdBy?: string;
   createdOn?: Date;
   modifiedBy?: string;
@@ -7,7 +7,7 @@ export class Entity {
 }
 
 export interface Entity {
-  id?: number;
+  id?: number | string;
   createdBy?: string;
   createdOn?: Date;
   modifiedBy?: string;
