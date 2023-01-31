@@ -1,4 +1,4 @@
-<div class="page-structure">
+<div (touchstart)="swipe($event, 'start')" (touchend)="swipe($event, 'end')" class="page-structure">
   <button (click)="toggleMenu()" class="hamburger">
     <span>toggle menu</span>
   </button>
