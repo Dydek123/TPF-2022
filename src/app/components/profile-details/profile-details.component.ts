@@ -1,6 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Travel} from "../../shared/models/travel.model";
 import {TravellService} from "../../services/travell.service";
+import {TravelUtils} from "../../shared/travel.utils";
 
 @Component({
   selector: 'app-profile-details',
@@ -29,5 +30,9 @@ export class ProfileDetailsComponent implements OnInit {
     if (this.travel?.id) {
       this.travelService.deleteById(this.travel.id).subscribe(travel => console.log(travel))
     }
+  }
+
+  getUserPicture(travel: Travel): string {
+    return TravelUtils.getUserPicture(travel);
   }
 }

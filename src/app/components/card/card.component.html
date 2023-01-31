@@ -1,11 +1,11 @@
 <div class="user-cards-container">
   <div class="user-card" (click)="cardEvent.emit(travel)">
-    <div id="details">
+    <div id="details" *ngIf="travel && travel.user">
       <img
-        src="https://st3.depositphotos.com/9998432/13335/v/600/depositphotos_133352010-stock-illustration-default-placeholder-man-and-woman.jpg"
+        [src]="getUserPicture(travel)"
         alt="image placeholder">
       <div id="mark-wrapper" *ngIf="status === CardStatus.SIMPLE_WITH_DESCRIPTION; else detailed">
-        <h3>Jan Kowalski</h3>
+        <h3>{{travel.user.name}}</h3>
         <div class="star-container">
           <!-- Tu nie wiem jak to zrobić bo to zależy od impoementacji. Można potem zrobić dwie klasy css np. jedna bedzie wypełniała na żółto a druga nie -->
           <i class="fa fa-star"></i>
@@ -16,7 +16,7 @@
         </div>
       </div>
       <ng-template #detailed>
-        <h3>Jan Kowalski</h3>
+        <h3>{{travel.user.name}}</h3>
         <i class="fa fa-check" *ngIf="status === CardStatus.DETAILED"></i>
       </ng-template>
     </div>

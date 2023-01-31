@@ -1,10 +1,10 @@
 <section class="details-panel" *ngIf="travel">
-  <div id="details">
+  <div id="details" *ngIf="travel.user">
     <img id="details-panel-img"
-         src="https://st3.depositphotos.com/9998432/13335/v/600/depositphotos_133352010-stock-illustration-default-placeholder-man-and-woman.jpg"
+         [src]="getUserPicture(travel)"
          alt="image placeholder">
     <div id="details-wrapper">
-      <h2>Jan Kowalski</h2>
+      <h2>{{travel.user.name}}</h2>
       <div *ngIf="showButtons">
         <button class="comment-button" (click)="onNotificationClick()">Zgłoszenia</button>
         <button class="comment-button" id="warning-button" (click)="deleteTravel()">Odwołaj</button>
@@ -26,6 +26,10 @@
         <p>Wyjazd</p>
         <span>{{travel.startPoint}}</span>
       </div>
+      <div>
+        <p>Cena</p>
+        <span>{{travel.cost}} zł</span>
+      </div>
     </div>
 
     <div>
@@ -44,7 +48,34 @@
     </div>
   </div>
 
-  <div class="map-container">
+  <div id="comment-section" *ngIf="showNotifications">
+    <div class="notification-wrapper">
+      <div id="details">
+        <img
+          src="https://st3.depositphotos.com/9998432/13335/v/600/depositphotos_133352010-stock-illustration-default-placeholder-man-and-woman.jpg"
+          alt="image placeholder">
+        <h3>Jan Kowalski</h3>
+      </div>
+      <div>
+        <button class="comment-button" id="action-button">Potwierdź</button>
+        <button class="comment-button" id="warning-button">Odmów</button>
+      </div>
+    </div>
+    <div class="notification-wrapper">
+      <div id="details">
+        <img
+          src="https://st3.depositphotos.com/9998432/13335/v/600/depositphotos_133352010-stock-illustration-default-placeholder-man-and-woman.jpg"
+          alt="image placeholder">
+        <h3>Jan Kowalski</h3>
+        <i id="check" class="fa fa-check"></i>
+      </div>
+      <div>
+        <button class="comment-button" id="warning-button">Anuluj</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="map-container" *ngIf="!showNotifications">
     Mapka
   </div>
 </section>
