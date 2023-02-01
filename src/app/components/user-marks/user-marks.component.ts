@@ -17,7 +17,7 @@ export class UserMarksComponent implements OnInit {
   cardStatus = CardStatus;
   showCommentPopup: boolean = false;
   commentList: CommentModel[];
-  private users: UserModel[];
+  users: UserModel[];
   selectedUser: UserModel;
 
   constructor(private authService: AuthService,
@@ -46,15 +46,26 @@ export class UserMarksComponent implements OnInit {
   }
 
   private loadComments() {
-    console.log(this.selectedUser);
     this.commentService.getAllForUser(String(this.selectedUser.id))
       .subscribe(comments => {
         this.commentList = comments;
-        console.log(this.commentList);
       })
   }
 
   onCommentAdd(event: CommentModel) {
     this.commentList.push(event);
+    const averageRating = this.getAverageRating().toFixed(2);
+    this.authService.updateRating(this.selectedUser, averageRating).subscribe(user => {
+      this.selectedUser = user;
+    });
+  }
+
+  onUserChanged(event: UserModel) {
+    this.selectedUser = event;
+    this.loadComments();
+  }
+
+  private getAverageRating(): number {
+    return this.commentList.reduce((a, b) => a + b.rating, 0) / this.commentList.length;
   }
 }

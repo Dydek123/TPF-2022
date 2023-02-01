@@ -63,4 +63,9 @@ export class AuthService {
     user.id = result?.uid;
     this.http.post(AuthService.USER_URL, user).subscribe(user => console.log(user));
   }
+
+  updateRating(user: UserModel, averageRating: string): Observable<UserModel> {
+    user.rating = Number(averageRating);
+    return this.http.put<UserModel>(AuthService.USER_URL + '/' + user.id, user);
+  }
 }

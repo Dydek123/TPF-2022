@@ -3,7 +3,9 @@
 
     <app-search-panel [context]="context"></app-search-panel>
     <span class="divider"></span>
-    <app-card [status]="cardStatus.SIMPLE_MARKS"></app-card>
+    <ng-container *ngFor="let user of users">
+      <app-user-card [user]="user" (cardEvent)="onUserChanged($event)"></app-user-card>
+    </ng-container>
 
   </section>
 

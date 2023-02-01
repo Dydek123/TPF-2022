@@ -22,6 +22,7 @@ import {TravellService} from "./services/travell.service";
 import {HttpClientModule} from "@angular/common/http";
 import {AddCommentComponent} from './components/add-comment/add-comment.component';
 import {MarksComponent} from './components/marks/marks.component';
+import {UserCardComponent} from './components/user-card/user-card.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import {MarksComponent} from './components/marks/marks.component';
     UserMarksComponent,
     SearchTravelComponent,
     AddCommentComponent,
-    MarksComponent
+    MarksComponent,
+    UserCardComponent
   ],
   imports: [
     BrowserModule,
