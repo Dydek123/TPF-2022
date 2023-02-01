@@ -1,4 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {UserModel} from "../../shared/models/user.model";
+import {CommentService} from "../../services/comment.service";
+import {CommentModel} from "../../shared/models/comment.model";
 
 @Component({
   selector: 'app-add-comment',
@@ -7,9 +11,42 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddCommentComponent implements OnInit {
 
-  constructor() { }
+  form: FormGroup;
+  isAdded: boolean;
+  @Output() commentAdd: EventEmitter<CommentModel> = new EventEmitter<CommentModel>();
+  @Input() user: UserModel;
 
-  ngOnInit(): void {
+  constructor(private formBuilder: FormBuilder,
+              private commentService: CommentService) {
   }
 
+  ngOnInit(): void {
+    this.createForm();
+  }
+
+  private createForm() {
+    this.form = this.formBuilder.group({
+      comment: ['', Validators.required],
+      rating: ['', Validators.required],
+      userId: [this.user.id, Validators.required]
+    })
+  }
+
+  onSubmit() {
+    this.commentService.add(this.form.value)
+      .subscribe((comment) => {
+        this.commentAdd.emit(comment)
+        this.isAdded = true;
+        setTimeout(() => {
+          this.isAdded = false;
+          this.form.reset();
+        }, 5000)
+      });
+  }
+
+  changeRating(number: number) {
+    this.form.patchValue({
+      rating: number
+    });
+  }
 }

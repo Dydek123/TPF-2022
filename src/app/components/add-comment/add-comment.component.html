@@ -1,25 +1,25 @@
 <div>
   <h2>Dodaj kometarz</h2>
 
-  <form>
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
     <div class="did-floating-label-content">
-      <input class="did-floating-input" type="text" placeholder="" formControlName="startPoint">
+      <input class="did-floating-input" type="text" placeholder="" formControlName="comment">
       <label class="did-floating-label">Komentarz</label>
     </div>
     <div class="rating">
-      <input type="radio" id="star5" name="rating" value="5" />
+      <input type="radio" id="star5" name="rating" value="5" (change)="changeRating(5)"/>
       <label for="star5">&#9733;</label>
-      <input type="radio" id="star4" name="rating" value="4" />
+      <input type="radio" id="star4" name="rating" value="4" (change)="changeRating(4)"/>
       <label for="star4">&#9733;</label>
-      <input type="radio" id="star3" name="rating" value="3" />
+      <input type="radio" id="star3" name="rating" value="3" (change)="changeRating(3)"/>
       <label for="star3">&#9733;</label>
-      <input type="radio" id="star2" name="rating" value="2" />
+      <input type="radio" id="star2" name="rating" value="2" (change)="changeRating(2)"/>
       <label for="star2">&#9733;</label>
-      <input type="radio" id="star1" name="rating" value="1" />
+      <input type="radio" id="star1" name="rating" value="1" (change)="changeRating(1)"/>
       <label for="star1">&#9733;</label>
     </div>
 
-    <button [ngClass]="false ? 'is_active' : ''" type="submit"> <!--  TODO onSuccess-->
+    <button [ngClass]="isAdded ? 'is_active' : ''" type="submit"> <!--  TODO onSuccess-->
       <span>Dodaj</span>
       <div class="success">
         <svg version="1.1" viewBox="0 0 29.756 29.756" style="enable-background:new 0 0 29.756 29.756;"
