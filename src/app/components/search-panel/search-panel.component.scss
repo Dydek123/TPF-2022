@@ -39,3 +39,10 @@ input {
   border: 0px;
   width: 100%;
 }
+@media only screen and (max-device-width: 420px) {
+  .search-panel{
+    width: 100%;
+    height: 40vh;
+    align-items: center;
+  }
+}
