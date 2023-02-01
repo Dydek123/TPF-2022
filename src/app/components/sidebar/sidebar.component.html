@@ -4,9 +4,8 @@
   <ng-container *ngIf="isLogged">
     <a routerLink="/szukaj" title="Wyszukiwarka przejazdów" [ngClass]="{'active-tab': checkURL('szukaj')}"><i
       class="fa fa-car"></i></a>
-    <a routerLink="/nowy-przejazd" title="Dodaj przejazd" [ngClass]="{'active-tab': checkURL('nowy-przejazd')}">JEDNEJ
-      IKONKI
-      BRAKUJE</a>
+    <a routerLink="/nowy-przejazd" title="Dodaj przejazd" [ngClass]="{'active-tab': checkURL('nowy-przejazd')}"><i
+      class="fa fa-plus"></i></a>
     <a routerLink="/profil" title="Profil" [ngClass]="{'active-tab': checkURL('profil')}"><i
       class="fa fa-user"></i></a>
     <a routerLink="/oceny" title="Oceny użytkowników" [ngClass]="{'active-tab': checkURL('oceny')}"><i

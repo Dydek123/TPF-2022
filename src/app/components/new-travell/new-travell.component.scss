@@ -160,3 +160,12 @@ button.is_active .success {
   top:-8px;
   font-size:13px;
 }
+
+@media only screen and (max-device-width: 420px) {
+  .my-form{
+    width: 80%;
+  }
+  .form-panel {
+    height: 70vh;
+  }
+}

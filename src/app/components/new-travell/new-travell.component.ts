@@ -53,6 +53,6 @@ export class NewTravellComponent implements OnInit {
   private setUserId() {
     this.authService.getUser().subscribe(user => {
       this.form.patchValue({userId: user?.uid});
-    })
+    });
   }
 }
