@@ -26,9 +26,6 @@ export class AuthService {
     return this.afAuth
       .signInWithPopup(provider)
       .then((result) => {
-        console.log(result);
-        console.log(result.user?.displayName);
-        console.log(result.user?.photoURL);
         if (result.additionalUserInfo?.isNewUser) {
           this.saveDbUser(result.user);
         }
@@ -56,10 +53,19 @@ export class AuthService {
     return this.afAuth.user;
   }
 
+  getAllUsers(): Observable<UserModel[]> {
+    return this.http.get<UserModel[]>(AuthService.USER_URL);
+  }
+
   saveDbUser(result: firebase.User | null): void {
     const user = new UserModel(result?.displayName, result?.photoURL);
     user.createdOn = new Date();
     user.id = result?.uid;
     this.http.post(AuthService.USER_URL, user).subscribe(user => console.log(user));
+  }
+
+  updateRating(user: UserModel, averageRating: string): Observable<UserModel> {
+    user.rating = Number(averageRating);
+    return this.http.put<UserModel>(AuthService.USER_URL + '/' + user.id, user);
   }
 }

@@ -16,12 +16,13 @@ import {NewTravellComponent} from './components/new-travell/new-travell.componen
 import {UserMarksComponent} from './components/user-marks/user-marks.component';
 import {SearchTravelComponent} from './components/search-travel/search-travel.component';
 import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
-import {ReactiveFormsModule} from "@angular/forms";
 import {TravellService} from "./services/travell.service";
 import {HttpClientModule} from "@angular/common/http";
-import { AddCommentComponent } from './components/add-comment/add-comment.component';
+import {AddCommentComponent} from './components/add-comment/add-comment.component';
+import {MarksComponent} from './components/marks/marks.component';
+import {UserCardComponent} from './components/user-card/user-card.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,9 @@ import { AddCommentComponent } from './components/add-comment/add-comment.compon
     NewTravellComponent,
     UserMarksComponent,
     SearchTravelComponent,
-    AddCommentComponent
+    AddCommentComponent,
+    MarksComponent,
+    UserCardComponent
   ],
   imports: [
     BrowserModule,
