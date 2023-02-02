@@ -1,0 +1,27 @@
+<div class="user-cards-container">
+  <div class="user-card" (click)="cardEvent.emit(user)">
+    <div id="details" *ngIf="user">
+      <img
+        [src]="getUserPicture(user)"
+        alt="image placeholder">
+      <div id="mark-wrapper">
+        <h3>{{user.name}}</h3>
+      </div>
+    </div>
+
+    <div id="info">
+      <div>
+        <p>Ocena</p>
+        <div class="star-container">
+          {{user.rating}}
+          <!-- Tu nie wiem jak to zrobić bo to zależy od impoementacji. Można potem zrobić dwie klasy css np. jedna bedzie wypełniała na żółto a druga nie -->
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
