@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {TravellService} from "../../services/travell.service";
 import {AuthService} from "../../services/auth.service";
@@ -13,6 +13,8 @@ export class NewTravellComponent implements OnInit {
   form: FormGroup;
   successSubmit: boolean;
   errorMessage: string;
+
+  @ViewChild('firstInput') input: ElementRef;
 
   constructor(private formBuilder: FormBuilder,
               private travellService: TravellService,

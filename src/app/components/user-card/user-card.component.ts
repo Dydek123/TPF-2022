@@ -1,6 +1,7 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {UserModel} from "../../shared/models/user.model";
 import {TravelUtils} from "../../shared/travel.utils";
+import {UserUtils} from "../../shared/user.utils";
 
 @Component({
   selector: 'app-user-card',
@@ -19,5 +20,9 @@ export class UserCardComponent implements OnInit {
 
   getUserPicture(user: UserModel) {
     return TravelUtils.getUserPicture(user);
+  }
+
+  getStarColor(starOrder: number): string {
+    return UserUtils.getStarColor(this.user.rating, starOrder)
   }
 }

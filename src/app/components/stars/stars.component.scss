@@ -1,0 +1,9 @@
+.star-container {
+  color: #FEC107;
+}
+
+@media only screen and (max-device-width: 420px) {
+  .star-container {
+    width: 15vh;
+  }
+}

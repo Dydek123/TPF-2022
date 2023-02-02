@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Context} from "../../shared/context";
 
 @Component({
@@ -8,9 +8,11 @@ import {Context} from "../../shared/context";
 })
 export class SearchPanelComponent implements OnInit {
 
-  @Input() context: Context;
-
   placeholder: string;
+  @Input() context: Context;
+  @Output() searchChanged: EventEmitter<string> = new EventEmitter<string>();
+
+  searchValue: string;
 
   ngOnInit(): void {
     switch (this.context) {
@@ -24,5 +26,9 @@ export class SearchPanelComponent implements OnInit {
         this.placeholder = 'Przejazdy';
         break;
     }
+  }
+
+  onSearch() {
+    this.searchChanged.emit(this.searchValue);
   }
 }

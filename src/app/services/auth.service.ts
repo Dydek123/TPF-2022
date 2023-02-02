@@ -4,7 +4,7 @@ import {Router} from "@angular/router";
 import {GoogleAuthProvider} from 'firebase/auth';
 import {Observable} from "rxjs";
 import firebase from "firebase/compat";
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpParams} from "@angular/common/http";
 import {environment} from "../../environments/environment";
 import {UserModel} from "../shared/models/user.model";
 
@@ -53,8 +53,8 @@ export class AuthService {
     return this.afAuth.user;
   }
 
-  getAllUsers(): Observable<UserModel[]> {
-    return this.http.get<UserModel[]>(AuthService.USER_URL);
+  getAllUsers(params?: HttpParams): Observable<UserModel[]> {
+    return this.http.get<UserModel[]>(AuthService.USER_URL, {params});
   }
 
   saveDbUser(result: firebase.User | null): void {

@@ -12,15 +12,7 @@
     <div id="info">
       <div>
         <p>Ocena</p>
-        <div class="star-container">
-          {{user.rating}}
-          <!-- Tu nie wiem jak to zrobić bo to zależy od impoementacji. Można potem zrobić dwie klasy css np. jedna bedzie wypełniała na żółto a druga nie -->
-          <i class="fa fa-star"></i>
-          <i class="fa fa-star"></i>
-          <i class="fa fa-star"></i>
-          <i class="fa fa-star"></i>
-          <i class="fa fa-star"></i>
-        </div>
+        <app-stars [rating]="user.rating"></app-stars>
       </div>
     </div>
   </div>

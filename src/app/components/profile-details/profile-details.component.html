@@ -73,6 +73,7 @@
         </div>
       </ng-template>
     </div>
+    <span *ngIf="isReservationListEmpty()">Brak zgłoszeń</span>
   </div>
 
   <div class="map-container" *ngIf="!showNotifications">
