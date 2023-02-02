@@ -3,9 +3,11 @@
 
     <app-search-panel [context]="context" (searchChanged)="onSearch($event)"></app-search-panel>
     <span class="divider"></span>
-    <ng-container *ngFor="let user of users">
-      <app-user-card [user]="user" (cardEvent)="onUserChanged($event)"></app-user-card>
-    </ng-container>
+    <div style="overflow: auto">
+      <ng-container *ngFor="let user of users">
+        <app-user-card [user]="user" (cardEvent)="onUserChanged($event)"></app-user-card>
+      </ng-container>
+    </div>
 
   </section>
 
@@ -23,7 +25,7 @@
       </div>
     </div>
 
-    <div id="comment-section">
+    <div id="comment-section" style="overflow: auto">
       <h2>Komentarze</h2>
       <span class="divider"></span>
       <ng-container *ngFor="let comment of commentList">

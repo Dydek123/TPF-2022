@@ -99,6 +99,18 @@
       "cost": 25,
       "createdOn": "2023-02-02T21:04:57.340Z",
       "id": 15
+    },
+    {
+      "destination": "Kraków",
+      "startPoint": "Lubaczów",
+      "date": "2023-02-03T01:25",
+      "freeSpace": 3,
+      "car": "bmw",
+      "duration": 34,
+      "userId": "O8MpfFQ6kfb5zjHMLUQ1updhFUC2",
+      "cost": 36,
+      "createdOn": "2023-02-02T22:25:10.054Z",
+      "id": 16
     }
   ],
   "reservation": [
@@ -153,6 +165,13 @@
       "isAccepted": false,
       "createdOn": "2023-01-31T19:28:19.862Z",
       "id": 6
+    },
+    {
+      "userId": "BUls3nTSDpObURY4f7YEJ0YOBam1",
+      "travelId": 15,
+      "isAccepted": false,
+      "createdOn": "2023-02-02T22:22:34.634Z",
+      "id": 7
     }
   ],
   "marks": [

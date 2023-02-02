@@ -1,54 +1,63 @@
-<section class="details-panel" *ngIf="travel">
-  <div id="details" *ngIf="travel.user">
-    <img id="details-panel-img"
-         [src]="getUserPicture(travel.user)"
-         alt="image placeholder">
-    <div id="details-wrapper">
-      <h2>{{travel.user.name}}</h2>
-      <div *ngIf="isProfile">
-        <button class="comment-button" (click)="onNotificationClick()">Zgłoszenia</button>
-        <button class="comment-button" id="warning-button" (click)="deleteTravel()">Odwołaj</button>
-      </div>
-      <div *ngIf="isSearch">
-        <button class="comment-button" (click)="onReservationClick(travel)">Zarezerwuj</button>
-      </div>
+<section *ngIf="travel" style="height: 90vh; display: flex;flex-direction: column;">
+  <div class="details-panel">
+    <div id="details" *ngIf="travel.user">
+      <img id="details-panel-img"
+           [src]="getUserPicture(travel.user)"
+           alt="image placeholder">
+      <div id="details-wrapper">
+        <h2>{{travel.user.name}}</h2>
+        <div *ngIf="isProfile" style="display: flex; justify-content: end">
+          <button class="comment-button">Twoje rezerwacje</button>
+        </div>
+        <div *ngIf="isSearch">
+          <button class="comment-button" (click)="onReservationClick(travel)">Zarezerwuj</button>
+        </div>
 
+      </div>
     </div>
   </div>
 
-  <div id="travel-info">
-    <div>
+  <div class="details-panel" style="height: inherit">
+    <div *ngIf="isProfile" style="display: flex; justify-content: end">
+      <button class="comment-button" (click)="onNotificationClick()" style="margin-right: 1em;">Zgłoszenia</button>
+      <button class="comment-button" id="warning-button" (click)="deleteTravel()">Odwołaj</button>
+    </div>
+    <div id="travel-info">
       <div>
-        <p>Data</p>
-        <span>{{travel.date | date}}</span>
+        <div>
+          <p>Data</p>
+          <span>{{travel.date | date}}</span>
+        </div>
+        <div>
+          <p>Godzina</p>
+          <span>{{travel.date | date:'shortTime'}}</span>
+        </div>
+        <div>
+          <p>Wyjazd</p>
+          <span>{{travel.startPoint}}</span>
+        </div>
+        <div>
+          <p>Cena</p>
+          <span>{{travel.cost}} zł</span>
+        </div>
       </div>
+
       <div>
-        <p>Godzina</p>
-        <span>{{travel.date | date:'shortTime'}}</span>
-      </div>
-      <div>
-        <p>Wyjazd</p>
-        <span>{{travel.startPoint}}</span>
-      </div>
-      <div>
-        <p>Cena</p>
-        <span>{{travel.cost}} zł</span>
+        <div>
+          <p>Czas trwania</p>
+          <span>{{travel.duration}} min</span>
+        </div>
+        <div>
+          <p>Pojazd</p>
+          <span>{{travel.car}}</span>
+        </div>
+        <div>
+          <p>Miejsca</p>
+          <span>{{travel.freeSpace}}</span>
+        </div>
       </div>
     </div>
-
-    <div>
-      <div>
-        <p>Czas trwania</p>
-        <span>{{travel.duration}} min</span>
-      </div>
-      <div>
-        <p>Pojazd</p>
-        <span>{{travel.car}}</span>
-      </div>
-      <div>
-        <p>Miejsca</p>
-        <span>{{travel.freeSpace}}</span>
-      </div>
+    <div class="map-container" *ngIf="!showNotifications">
     </div>
   </div>
 
@@ -76,7 +85,5 @@
     <span *ngIf="isReservationListEmpty()">Brak zgłoszeń</span>
   </div>
 
-  <div class="map-container" *ngIf="!showNotifications">
-    Mapka
-  </div>
+
 </section>
