@@ -23,6 +23,7 @@ import {HttpClientModule} from "@angular/common/http";
 import {AddCommentComponent} from './components/add-comment/add-comment.component';
 import {MarksComponent} from './components/marks/marks.component';
 import {UserCardComponent} from './components/user-card/user-card.component';
+import {StarsComponent} from './components/stars/stars.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import {UserCardComponent} from './components/user-card/user-card.component';
     SearchTravelComponent,
     AddCommentComponent,
     MarksComponent,
-    UserCardComponent
+    UserCardComponent,
+    StarsComponent
   ],
   imports: [
     BrowserModule,

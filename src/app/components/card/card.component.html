@@ -6,14 +6,7 @@
         alt="image placeholder">
       <div id="mark-wrapper" *ngIf="status === CardStatus.SIMPLE_WITH_DESCRIPTION; else detailed">
         <h3>{{travel.user.name}}</h3>
-        <div class="star-container">
-          <!-- Tu nie wiem jak to zrobić bo to zależy od impoementacji. Można potem zrobić dwie klasy css np. jedna bedzie wypełniała na żółto a druga nie -->
-          <i class="fa fa-star"></i>
-          <i class="fa fa-star"></i>
-          <i class="fa fa-star"></i>
-          <i class="fa fa-star"></i>
-          <i class="fa fa-star"></i>
-        </div>
+        <app-stars [rating]="travel.user.rating"></app-stars>
       </div>
       <ng-template #detailed>
         <h3>{{travel.user.name}}</h3>

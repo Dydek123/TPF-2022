@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {CommentModel} from "../../shared/models/comment.model";
+import {UserUtils} from "../../shared/user.utils";
 
 @Component({
   selector: 'app-marks',
@@ -16,4 +17,7 @@ export class MarksComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  getStarColor(starOrder: number): string {
+    return UserUtils.getStarColor(this.comment.rating, starOrder)
+  }
 }

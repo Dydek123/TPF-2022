@@ -7,6 +7,7 @@ import {TravelUtils} from "../../shared/travel.utils";
 import {CommentService} from "../../services/comment.service";
 import {CommentModel} from "../../shared/models/comment.model";
 import {HttpParams} from "@angular/common/http";
+import {UserUtils} from "../../shared/user.utils";
 
 @Component({
   selector: 'app-user-marks',
@@ -79,5 +80,9 @@ export class UserMarksComponent implements OnInit {
       .subscribe(users => {
         this.users = users;
       });
+  }
+
+  getStarColor(starOrder: number): string {
+    return UserUtils.getStarColor(this.selectedUser.rating, starOrder)
   }
 }
