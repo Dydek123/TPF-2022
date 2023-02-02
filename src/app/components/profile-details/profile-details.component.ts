@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Travel} from "../../shared/models/travel.model";
 import {TravellService} from "../../services/travell.service";
 import {TravelUtils} from "../../shared/travel.utils";
@@ -6,6 +6,7 @@ import {Context} from "../../shared/context";
 import {ReservationService} from "../../services/reservation.service";
 import {ReservationModel} from "../../shared/models/reservation.model";
 import {UserModel} from "../../shared/models/user.model";
+import {forkJoin} from "rxjs";
 
 @Component({
   selector: 'app-profile-details',
@@ -21,6 +22,8 @@ export class ProfileDetailsComponent implements OnInit {
   @Input() context: Context;
 
   @Input() travel: Travel | null;
+
+  @Output() onDeleteTravel: EventEmitter<Travel> = new EventEmitter<Travel>();
 
   constructor(private travelService: TravellService,
               private reservationService: ReservationService) {
@@ -42,7 +45,6 @@ export class ProfileDetailsComponent implements OnInit {
     if (this.travel?.id) {
       this.reservationService.getByTravelId(Number(this.travel.id))
         .subscribe(reservations => {
-          console.log(reservations);
           this.reservationList = reservations;
         });
     }
@@ -50,7 +52,8 @@ export class ProfileDetailsComponent implements OnInit {
 
   deleteTravel() {
     if (this.travel?.id) {
-      this.travelService.deleteById(this.travel.id).subscribe(travel => console.log(travel))
+      this.travelService.deleteById(this.travel.id).subscribe();
+      this.onDeleteTravel.emit(this.travel);
     }
   }
 
@@ -60,13 +63,11 @@ export class ProfileDetailsComponent implements OnInit {
 
   onReservationClick(travel: Travel) {
     this.reservationService.add(travel)
-      .subscribe(reservation => {
-        console.log(reservation);
-      })
+      .subscribe();
   }
 
   deleteReservation(reservation: ReservationModel) {
-    this.reservationService.deleteReservation(reservation);
+    this.reservationService.deleteReservation(reservation).subscribe();
   }
 
   acceptReservation(reservation: ReservationModel) {
@@ -83,10 +84,12 @@ export class ProfileDetailsComponent implements OnInit {
 
   private changeReservation(reservation: ReservationModel, isAccepted: boolean) {
     if (this.travel) {
-      this.travelService.acceptReservation(this.travel, isAccepted)
-        .subscribe();
-      this.reservationService.acceptReservation(reservation, isAccepted)
-        .subscribe()
+      forkJoin([this.travelService.acceptReservation(this.travel, isAccepted),
+        this.reservationService.acceptReservation(reservation, isAccepted)]).subscribe();
     }
+  }
+
+  isReservationListEmpty(): boolean {
+    return !this.reservationList || this.reservationList.length === 0;
   }
 }

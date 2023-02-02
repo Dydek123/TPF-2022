@@ -6,6 +6,7 @@ import {UserModel} from "../../shared/models/user.model";
 import {TravelUtils} from "../../shared/travel.utils";
 import {CommentService} from "../../services/comment.service";
 import {CommentModel} from "../../shared/models/comment.model";
+import {HttpParams} from "@angular/common/http";
 
 @Component({
   selector: 'app-user-marks',
@@ -67,5 +68,16 @@ export class UserMarksComponent implements OnInit {
 
   private getAverageRating(): number {
     return this.commentList.reduce((a, b) => a + b.rating, 0) / this.commentList.length;
+  }
+
+  onSearch(event: string) {
+    let params = new HttpParams()
+    if (event) {
+      params = params.set('name', event);
+    }
+    this.authService.getAllUsers(params)
+      .subscribe(users => {
+        this.users = users;
+      });
   }
 }

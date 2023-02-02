@@ -1,0 +1,226 @@
+{
+  "users": [
+    {
+      "name": "Kamil Maksymowicz",
+      "picture": "https://lh3.googleusercontent.com/a/AEdFTp6cBCN_E0gqNq7fxBU5AXEuvCHqIitwHWnKOxNn=s96-c",
+      "createdOn": "2023-01-31T17:35:43.381Z",
+      "id": "MLjCSdr3Eqgq0mU0rH4exC2e8O03",
+      "rating": 4.44
+    },
+    {
+      "name": "Dawid Mazurkiewicz",
+      "rating": 5,
+      "createdOn": {
+        "seconds": 1675346401,
+        "nanoseconds": 347000000
+      },
+      "picture": "https://lh3.googleusercontent.com/a/AEdFTp6cBCN_E0gqNq7fxBU5AXEuvCHqIitwHWnKOxNn=s96-c",
+      "id": "BUls3nTSDpObURY4f7YEJ0YOBam1"
+    }
+  ],
+  "travel": [
+    {
+      "destination": "AA",
+      "startPoint": "AAA",
+      "date": "2023-01-30T21:30",
+      "freeSpace": 2,
+      "car": null,
+      "duration": null,
+      "userId": "MLjCSdr3Eqgq0mU0rH4exC2e8O03",
+      "id": 9
+    },
+    {
+      "destination": "Lubaczów",
+      "startPoint": "Kraków",
+      "date": "2023-01-30T21:47",
+      "freeSpace": 2,
+      "car": "Opel Corsa",
+      "duration": 100,
+      "userId": "MLjCSdr3Eqgq0mU0rH4exC2e8O03",
+      "cost": 50,
+      "id": 10
+    },
+    {
+      "destination": "Poznań",
+      "startPoint": "Kraków",
+      "date": "2023-01-24T21:49",
+      "freeSpace": 5,
+      "car": "opel Corsa",
+      "duration": 200,
+      "userId": "MLjCSdr3Eqgq0mU0rH4exC2e8O03",
+      "cost": 40,
+      "createdOn": "2023-01-30T20:49:56.567Z",
+      "id": 11
+    },
+    {
+      "destination": "Kraków",
+      "startPoint": "Lubaczów",
+      "date": "2023-02-04T18:40",
+      "freeSpace": 1,
+      "car": "Toyota RAV-4",
+      "duration": 150,
+      "userId": "BUls3nTSDpObURY4f7YEJ0YOBam1",
+      "cost": 30,
+      "createdOn": "2023-01-31T17:41:18.422Z",
+      "id": 12
+    },
+    {
+      "destination": "Lubaczów",
+      "startPoint": "Poznań",
+      "date": "2023-01-11T21:04",
+      "freeSpace": 3,
+      "car": "Toyota RAV-4",
+      "duration": 120,
+      "userId": "BUls3nTSDpObURY4f7YEJ0YOBam1",
+      "cost": 50,
+      "createdOn": "2023-01-31T20:04:51.137Z",
+      "id": 13
+    },
+    {
+      "destination": "Test",
+      "startPoint": "Testowo",
+      "date": "2023-01-25T22:54",
+      "freeSpace": 3,
+      "car": "Audi A4",
+      "duration": 500,
+      "userId": "BUls3nTSDpObURY4f7YEJ0YOBam1",
+      "cost": 100,
+      "createdOn": "2023-01-31T21:54:15.025Z",
+      "id": 14
+    },
+    {
+      "destination": "Wrocław",
+      "startPoint": "Warszawa",
+      "date": "2023-02-04T22:00",
+      "freeSpace": 3,
+      "car": "VW Gold",
+      "duration": 100,
+      "userId": "BUls3nTSDpObURY4f7YEJ0YOBam1",
+      "cost": 25,
+      "createdOn": "2023-02-02T21:04:57.340Z",
+      "id": 15
+    }
+  ],
+  "reservation": [
+    {
+      "userId": "MLjCSdr3Eqgq0mU0rH4exC2e8O03",
+      "travelId": 9,
+      "isAccepted": false,
+      "createdOn": "2023-01-31T18:30:17.233Z",
+      "id": 1
+    },
+    {
+      "userId": "MLjCSdr3Eqgq0mU0rH4exC2e8O03",
+      "travelId": 9,
+      "isAccepted": false,
+      "createdOn": "2023-01-31T18:30:36.703Z",
+      "id": 2
+    },
+    {
+      "userId": "MLjCSdr3Eqgq0mU0rH4exC2e8O03",
+      "travelId": 9,
+      "isAccepted": false,
+      "createdOn": "2023-01-31T18:30:37.129Z",
+      "id": 3
+    },
+    {
+      "userId": "MLjCSdr3Eqgq0mU0rH4exC2e8O03",
+      "travelId": 9,
+      "isAccepted": false,
+      "createdOn": "2023-01-31T18:30:37.463Z",
+      "id": 4
+    },
+    {
+      "userId": "BUls3nTSDpObURY4f7YEJ0YOBam1",
+      "travelId": 12,
+      "isAccepted": true,
+      "createdOn": "2023-01-31T19:21:36.044Z",
+      "id": 5,
+      "user": {
+        "name": "Dawid Mazurkiewicz",
+        "rating": 5,
+        "createdOn": {
+          "seconds": 1675346401,
+          "nanoseconds": 347000000
+        },
+        "picture": "https://lh3.googleusercontent.com/a/AEdFTp6cBCN_E0gqNq7fxBU5AXEuvCHqIitwHWnKOxNn=s96-c",
+        "id": "BUls3nTSDpObURY4f7YEJ0YOBam1"
+      }
+    },
+    {
+      "userId": "BUls3nTSDpObURY4f7YEJ0YOBam1",
+      "travelId": 12,
+      "isAccepted": false,
+      "createdOn": "2023-01-31T19:28:19.862Z",
+      "id": 6
+    }
+  ],
+  "marks": [
+    {
+      "comment": "Super",
+      "rating": 4,
+      "userId": "MLjCSdr3Eqgq0mU0rH4exC2e8O03",
+      "id": 1
+    },
+    {
+      "comment": "Rewelacja",
+      "rating": 4,
+      "userId": "MLjCSdr3Eqgq0mU0rH4exC2e8O03",
+      "id": 2
+    },
+    {
+      "comment": "Test",
+      "rating": 5,
+      "userId": "MLjCSdr3Eqgq0mU0rH4exC2e8O03",
+      "id": 3
+    },
+    {
+      "comment": "Halo",
+      "rating": 4,
+      "userId": "MLjCSdr3Eqgq0mU0rH4exC2e8O03",
+      "id": 4
+    },
+    {
+      "comment": "123",
+      "rating": 5,
+      "userId": "MLjCSdr3Eqgq0mU0rH4exC2e8O03",
+      "id": 5
+    },
+    {
+      "comment": "321",
+      "rating": 5,
+      "userId": "MLjCSdr3Eqgq0mU0rH4exC2e8O03",
+      "id": 6
+    },
+    {
+      "comment": "aaa",
+      "rating": null,
+      "userId": null,
+      "id": 7
+    },
+    {
+      "comment": "Mega",
+      "rating": 3,
+      "userId": "MLjCSdr3Eqgq0mU0rH4exC2e8O03",
+      "id": 8
+    },
+    {
+      "comment": null,
+      "rating": 4,
+      "userId": null,
+      "id": 9
+    },
+    {
+      "comment": "123",
+      "rating": 5,
+      "userId": "MLjCSdr3Eqgq0mU0rH4exC2e8O03",
+      "id": 10
+    },
+    {
+      "comment": "Test",
+      "rating": 5,
+      "userId": "MLjCSdr3Eqgq0mU0rH4exC2e8O03",
+      "id": 11
+    }
+  ]
+}

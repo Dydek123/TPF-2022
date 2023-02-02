@@ -1,6 +1,6 @@
 <div class="page-container">
   <section class="search-panel">
-    <app-search-panel [context]="context"></app-search-panel>
+    <app-search-panel [context]="context" (searchChanged)="onSearch($event)"></app-search-panel>
     <span class="divider"></span>
     <ng-container *ngFor="let travel of travels">
       <app-card [status]="cardStatus" [travel]="travel" (cardEvent)="onCardChanged($event)"></app-card>

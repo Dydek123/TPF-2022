@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {Observable} from "rxjs";
 import {Travel} from "../shared/models/travel.model";
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpParams} from "@angular/common/http";
 import {environment} from "../../environments/environment";
 
 @Injectable({
@@ -13,8 +13,8 @@ export class TravellService {
   constructor(private http: HttpClient) {
   }
 
-  getAll(): Observable<Travel[]> {
-    return this.http.get<Travel[]>(this.url + '?_expand=user'); //TODO remove expand
+  getAll(params?: HttpParams): Observable<Travel[]> {
+    return this.http.get<Travel[]>(this.url + '?_expand=user&_sort=id&_order=desc', {params}); //TODO remove expand
   }
 
   getByUserId(id: string): Observable<Travel[]> {

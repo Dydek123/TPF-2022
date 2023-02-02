@@ -3,6 +3,7 @@ import {Context} from "../../shared/context";
 import {CardStatus} from "../../shared/card-status";
 import {TravellService} from "../../services/travell.service";
 import {Travel} from "../../shared/models/travel.model";
+import {HttpParams} from "@angular/common/http";
 
 @Component({
   selector: 'app-search-travel',
@@ -28,5 +29,16 @@ export class SearchTravelComponent implements OnInit {
 
   onCardChanged(event: Travel) {
     this.selectedTravel = event;
+  }
+
+  onSearch(event: string) {
+    let params = new HttpParams()
+    if (event) {
+      params = params.set('destination', event);
+    }
+    this.travelService.getAll(params)
+      .subscribe(travels => {
+        this.travels = travels;
+      });
   }
 }
