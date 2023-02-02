@@ -127,9 +127,11 @@ button.is_active .success {
 /*MARK*/
 .rating {
   display: flex;
-  justify-content: space-between;
-  width: 100px;
+  justify-content: unset;
   flex-direction: row-reverse;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .rating input[type="radio"] {

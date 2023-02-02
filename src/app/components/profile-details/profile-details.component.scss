@@ -1,11 +1,7 @@
 .details-panel {
   display: flex;
   flex-direction: column;
-  height: 90vh;
   padding: 0.7em;
-}
-
-.details-panel {
   background: #FFFFFF;
   box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
   border-radius: 25px;
@@ -76,9 +72,11 @@
 
 .map-container {
   background-color: #d6d6d6;
+  background: url("https://i.imgur.com/FcSaIeK.png");
   filter: drop-shadow(0px 2px 2px rgba(0, 0, 0, 0.25));
   border-radius: 25px;
   height: 60%;
+  background-size: cover;
 }
 
 #details-wrapper {

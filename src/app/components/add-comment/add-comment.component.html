@@ -1,11 +1,11 @@
-<div>
-  <h2>Dodaj kometarz</h2>
-
+<div style="width: 80%">
   <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <h3>Komentarz</h3>
     <div class="did-floating-label-content">
-      <input class="did-floating-input" type="text" placeholder="" formControlName="comment">
-      <label class="did-floating-label">Komentarz</label>
+      <textarea style="width: 100%; height: 150px;" class="did-floating-input" type="text" placeholder=""
+                formControlName="comment"></textarea>
     </div>
+    <h3>Twoja ocena</h3>
     <div class="rating">
       <input type="radio" id="star5" name="rating" value="5" (change)="changeRating(5)"/>
       <label for="star5">&#9733;</label>
@@ -19,7 +19,7 @@
       <label for="star1">&#9733;</label>
     </div>
 
-    <button [ngClass]="isAdded ? 'is_active' : ''" type="submit"> <!--  TODO onSuccess-->
+    <button style="margin-top: 10px" [ngClass]="isAdded ? 'is_active' : ''" type="submit"> <!--  TODO onSuccess-->
       <span>Dodaj</span>
       <div class="success">
         <svg version="1.1" viewBox="0 0 29.756 29.756" style="enable-background:new 0 0 29.756 29.756;"
