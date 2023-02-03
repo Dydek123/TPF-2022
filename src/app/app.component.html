@@ -2,7 +2,7 @@
   <button (click)="toggleMenu()" class="hamburger">
     <span>toggle menu</span>
   </button>
-  <app-sidebar [@slideInOut]="showSidebar"></app-sidebar>
+  <app-sidebar class="sidebar" [@slideInOut]="showSidebar"></app-sidebar>
   <div class="content">
     <router-outlet></router-outlet>
   </div>

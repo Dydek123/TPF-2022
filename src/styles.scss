@@ -77,3 +77,28 @@ body {
   transform: translate(-50%, -50%);
   align-items: center;
 }
+
+.cancel-button {
+  height: 44px !important;
+  width: 44px !important;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  border: none !important;
+  color: black !important;
+}
+
+.cancel-button:hover{
+  background: none !important;
+}
+
+
+@media only screen and (min-device-width: 420px) {
+  .hamburger {
+    display: none;
+  }
+
+  .sidebar {
+    transform: translate3d(0px, 0px, 0px) !important;
+  }
+}

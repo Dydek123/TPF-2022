@@ -5,7 +5,7 @@
       "picture": "https://lh3.googleusercontent.com/a/AEdFTp6cBCN_E0gqNq7fxBU5AXEuvCHqIitwHWnKOxNn=s96-c",
       "createdOn": "2023-01-31T17:35:43.381Z",
       "id": "MLjCSdr3Eqgq0mU0rH4exC2e8O03",
-      "rating": 4.44
+      "rating": 32.38
     },
     {
       "name": "Dawid Mazurkiewicz",
@@ -101,15 +101,15 @@
       "id": 15
     },
     {
-      "destination": "Kraków",
-      "startPoint": "Lubaczów",
-      "date": "2023-02-03T01:25",
-      "freeSpace": 3,
-      "car": "bmw",
-      "duration": 34,
+      "destination": "ad",
+      "startPoint": "das",
+      "date": "2023-02-16T02:02",
+      "freeSpace": 2,
+      "car": "2",
+      "duration": 2,
       "userId": "O8MpfFQ6kfb5zjHMLUQ1updhFUC2",
-      "cost": 36,
-      "createdOn": "2023-02-02T22:25:10.054Z",
+      "cost": 32,
+      "createdOn": "2023-02-03T17:38:43.356Z",
       "id": 16
     }
   ],
@@ -240,6 +240,30 @@
       "rating": 5,
       "userId": "MLjCSdr3Eqgq0mU0rH4exC2e8O03",
       "id": 11
+    },
+    {
+      "comment": "",
+      "rating": 2,
+      "userId": "MLjCSdr3Eqgq0mU0rH4exC2e8O03",
+      "id": 12
+    },
+    {
+      "comment": "",
+      "rating": "",
+      "userId": "MLjCSdr3Eqgq0mU0rH4exC2e8O03",
+      "id": 13
+    },
+    {
+      "comment": "",
+      "rating": "",
+      "userId": "MLjCSdr3Eqgq0mU0rH4exC2e8O03",
+      "id": 14
+    },
+    {
+      "comment": "",
+      "rating": 1,
+      "userId": "MLjCSdr3Eqgq0mU0rH4exC2e8O03",
+      "id": 15
     }
   ]
 }
