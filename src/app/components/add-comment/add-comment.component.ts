@@ -14,6 +14,7 @@ export class AddCommentComponent implements OnInit {
   form: FormGroup;
   isAdded: boolean;
   @Output() commentAdd: EventEmitter<CommentModel> = new EventEmitter<CommentModel>();
+  @Output() closePopup: EventEmitter<void> = new EventEmitter<void>();
   @Input() user: UserModel;
 
   constructor(private formBuilder: FormBuilder,

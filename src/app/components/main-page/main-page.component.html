@@ -1,17 +1,17 @@
 <section class="main-page-section">
 <!--    <div class="logo-section">LOGO</div>-->
     <div class="search-travel-main-page">
-      <form class="main-page-form">
+      <form class="main-page-form" [formGroup]="form" (ngSubmit)="onSubmit()">
         <div class="did-floating-label-content">
-          <input class="did-floating-input" type="text" placeholder="Skąd" formControlName="destination">
+          <input class="did-floating-input" type="text" placeholder="Skąd" formControlName="startPoint">
         </div>
         <div class="did-floating-label-content">
-          <input class="did-floating-input" type="text" placeholder="Dokąd" formControlName="startPoint">
+          <input class="did-floating-input" type="text" placeholder="Dokąd" formControlName="destination">
         </div>
         <div class="did-floating-label-content">
           <input class="did-floating-input" type="datetime-local" placeholder="Kiedy" formControlName="date">
         </div>
-<!--        <button [ngClass]="successSubmit ? 'is_active' : ''" type="submit">-->
+        <!--        <button [ngClass]="successSubmit ? 'is_active' : ''" type="submit">-->
         <button type="submit">
           <span>Szukaj</span>
           <div class="success">

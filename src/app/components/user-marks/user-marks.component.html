@@ -35,5 +35,5 @@
     </div>
   </section>
   <app-add-comment class="popup" *ngIf="showCommentPopup" [user]="selectedUser"
-                   (commentAdd)="onCommentAdd($event)"></app-add-comment>
+                   (commentAdd)="onCommentAdd($event)" (closePopup)="this.showCommentPopup = false"></app-add-comment>
 </div>
