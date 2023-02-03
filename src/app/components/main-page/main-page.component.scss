@@ -1,97 +1,92 @@
-.main-page-section{
+.main-page-section {
   display: flex;
   flex-direction: column;
   height: 100vh;
   width: 100%;
 }
 
-.logo-section{
+.logo-section {
   text-align: center;
   font-size: 50px;
   font-weight: bold;
   height: 10vh;
 }
 
-.search-travel-main-page{
+.search-travel-main-page {
   background-image: url("https://wallpapercave.com/wp/wp3594884.jpg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: 100vw;
   height: 40vh;
+  display: flex;
 
 }
 
 .main-page-form {
   display: flex;
   flex-direction: row;
-  margin: auto;
   justify-content: space-between;
   width: 80%;
+  align-items: center;
+  margin-right: auto;
+  margin-left: auto;
 }
 
 .main-page-form > div {
-  margin-top: 10%;
 }
 
 .main-page-form > button {
-  margin-top: 10%;
-}
-
-
-
-.did-floating-label-content {
-  position:relative;
-  margin-bottom:20px;
-  width: 50%;
 }
 
 .did-floating-label {
-  color:#1e4c82;
-  font-size:13px;
-  font-weight:normal;
-  position:absolute;
-  pointer-events:none;
-  padding:0 5px;
-  transition:0.2s ease all;
-  -moz-transition:0.2s ease all;
-  -webkit-transition:0.2s ease all;
+  color: #1e4c82;
+  font-size: 13px;
+  font-weight: normal;
+  position: absolute;
+  pointer-events: none;
+  padding: 0 5px;
+  transition: 0.2s ease all;
+  -moz-transition: 0.2s ease all;
+  -webkit-transition: 0.2s ease all;
 }
 
 .did-floating-input, .did-floating-select {
   background: #F6F8FF;
   box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
-  font-size:12px;
-  display:block;
-  width:70%;
-  height:40px;
+  font-size: 12px;
+  display: block;
+  width: 70%;
+  height: 40px;
   padding: 0 20px;
   color: #323840;
   border-radius: 4px;
   box-sizing: border-box;
-  &:focus{
-    outline:none;
-    ~ .did-floating-label{
-      top:0px;
-      font-size:13px;
+
+  &:focus {
+    outline: none;
+
+    ~ .did-floating-label {
+      top: 0px;
+      font-size: 13px;
     }
   }
 }
 
 .did-floating-input:not(:placeholder-shown) ~ .did-floating-label {
-  top:0px;
-  font-size:13px;
+  top: 0px;
+  font-size: 13px;
 }
 
 .did-floating-label-content {
-  position:relative;
-  margin-bottom:20px;
-  width: 30%;
+  position: relative;
   opacity: 90%;
+  height: fit-content;
+  width: 100%;
 }
 
 button {
   font-family: 'Ubuntu', sans-serif;
-  width: 170px;
+  width: 350px;
   height: 40px;
   line-height: 2;
   font-size: 18px;
@@ -120,7 +115,7 @@ button span {
 }
 
 
-.main-info{
+.main-info {
   margin-top: 5vh;
   display: flex;
   flex-direction: row;
@@ -129,9 +124,10 @@ button span {
 
 }
 
-.main-text-placeholder > p{
+.main-text-placeholder > p {
   font-size: 20px;
 }
+
 .main-text-placeholder {
   width: 30%;
   height: 30vh;
@@ -141,12 +137,12 @@ button span {
 
 @media only screen and (max-device-width: 420px) {
   .main-page-section {
-  width: 90vw;
-   overflow-x: hidden;
+    width: 90vw;
+    overflow-x: hidden;
     overflow-y: auto;
   }
 
-  .main-page-form{
+  .main-page-form {
     flex-direction: column;
     align-content: center;
     align-items: center;
@@ -166,17 +162,14 @@ button span {
 
   }
 
-  .did-floating-input{
+  .did-floating-input {
     width: 100%;
   }
-  .did-floating-label-content {
-    width: 100%;
 
-  }
-    .logo-section{
+  .logo-section {
     height: 10vh;
   }
-  .search-travel-main-page{
+  .search-travel-main-page {
     background-size: initial;
     background-position: center;
     height: 50vh;
@@ -184,14 +177,14 @@ button span {
 
   }
 
-  .main-info{
+  .main-info {
     margin-top: 0vh;
     flex-direction: column;
     height: auto;
     height: 40vh;
   }
 
-  .main-text-placeholder > p{
+  .main-text-placeholder > p {
     font-size: 20px;
   }
   .main-text-placeholder {

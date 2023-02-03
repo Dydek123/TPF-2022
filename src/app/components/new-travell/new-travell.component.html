@@ -26,12 +26,12 @@
       <label class="did-floating-label">Czas trwania [min]</label>
     </div>
     <div class="did-floating-label-content">
-      <input class="did-floating-input" type="number" placeholder="" formControlName="cost">
+      <input class="did-floating-input" type="number" placeholder="" formControlName="cost"> <!-- TODO klasa dla walidatora did-floating-input-error-->
       <label class="did-floating-label">Cena [zł]</label>
     </div>
-    <span class="validator-error" *ngIf="errorMessage">  <!-- TODO dodać stylowanie-->
+    <div class="validator-error" *ngIf="errorMessage">  <!-- TODO wyświetlanie tutaj informacji o walidacji lub błędzie-->
       {{errorMessage}}
-    </span>
+    </div>
     <button [ngClass]="successSubmit ? 'is_active' : ''" type="submit" [disabled]="form.invalid">
       <span>Dodaj</span>
       <div class="success">
