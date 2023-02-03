@@ -4,6 +4,7 @@ import {CardStatus} from "../../shared/card-status";
 import {TravellService} from "../../services/travell.service";
 import {Travel} from "../../shared/models/travel.model";
 import {HttpParams} from "@angular/common/http";
+import {ActivatedRoute, Params} from "@angular/router";
 
 @Component({
   selector: 'app-search-travel',
@@ -17,13 +18,13 @@ export class SearchTravelComponent implements OnInit {
   travels: Travel[];
   selectedTravel: Travel | null;
 
-  constructor(private travelService: TravellService) {
+  constructor(private travelService: TravellService,
+              private route: ActivatedRoute) {
   }
 
   ngOnInit(): void {
-    this.travelService.getAll().subscribe(travels => {
-      this.travels = travels;
-      this.selectedTravel = travels.length > 0 ? travels[0] : null;
+    this.route.queryParams.subscribe(param => {
+      this.getTravels(this.getQueryParams(param));
     });
   }
 
@@ -36,9 +37,25 @@ export class SearchTravelComponent implements OnInit {
     if (event) {
       params = params.set('destination', event);
     }
+    this.getTravels(params);
+  }
+
+
+  private getTravels(params: HttpParams) {
     this.travelService.getAll(params)
       .subscribe(travels => {
         this.travels = travels;
+        this.selectedTravel = travels.length > 0 ? travels[0] : null;
       });
+  }
+
+  private getQueryParams(param: Params) {
+    let httpParams = new HttpParams();
+    for (const httpParamsKey in param) {
+      if (param[httpParamsKey]) {
+        httpParams = httpParams.set(httpParamsKey, param[httpParamsKey]);
+      }
+    }
+    return httpParams;
   }
 }
