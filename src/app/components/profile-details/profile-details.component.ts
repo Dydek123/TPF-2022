@@ -15,7 +15,9 @@ import {forkJoin} from "rxjs";
 })
 export class ProfileDetailsComponent implements OnInit {
 
+  showCommentPopup: boolean = false;
   showNotifications: boolean;
+  successSubmit: boolean
   reservationList: ReservationModel[];
 
   @Input() showButtons: boolean;
@@ -64,6 +66,7 @@ export class ProfileDetailsComponent implements OnInit {
   onReservationClick(travel: Travel) {
     this.reservationService.add(travel)
       .subscribe();
+    this.successSubmit = true;
   }
 
   deleteReservation(reservation: ReservationModel) {
@@ -91,5 +94,9 @@ export class ProfileDetailsComponent implements OnInit {
 
   isReservationListEmpty(): boolean {
     return !this.reservationList || this.reservationList.length === 0;
+  }
+
+  togglePopup() {
+    this.showCommentPopup = !this.showCommentPopup;
   }
 }

@@ -23,7 +23,7 @@ export class SearchPanelComponent implements OnInit {
         this.placeholder = 'Twoje przejazdy';
         break;
       case Context.TRAVEL_SEARCH:
-        this.placeholder = 'Przejazdy';
+        this.placeholder = 'Gdzie chcesz jechać?';
         break;
     }
   }
