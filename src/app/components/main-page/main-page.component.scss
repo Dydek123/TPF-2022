@@ -135,7 +135,6 @@ button span {
 
 @media only screen and (max-device-width: 420px) {
   .main-page-section {
-    width: 90vw;
     overflow-x: hidden;
     overflow-y: auto;
   }
@@ -144,8 +143,7 @@ button span {
     flex-direction: column;
     align-content: center;
     align-items: center;
-    margin-top: 30%;
-    margin-left: 20px;
+    justify-content: space-evenly;
   }
 
   .main-page-form > div {
@@ -157,7 +155,7 @@ button span {
     margin-top: 0;
     justify-content: space-around;
     align-items: center;
-
+    width: inherit;
   }
 
   .did-floating-input {
