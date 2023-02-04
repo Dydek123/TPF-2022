@@ -10,6 +10,7 @@
     </div>
   </section>
 
-  <app-profile-details *ngIf="travels" [showButtons]="true" [context]="context"
+  <app-profile-details [ngClass]="isSmallScreen ? 'popup' : ''" *ngIf="travels && (!isSmallScreen || showPopup)"
+                       [showButtons]="true" [context]="context"
                        [travel]="selectedTravel" (onDeleteTravel)="onDeleteTravel($event)"></app-profile-details>
 </div>
