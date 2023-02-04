@@ -5,7 +5,7 @@
       "picture": "https://lh3.googleusercontent.com/a/AEdFTp6cBCN_E0gqNq7fxBU5AXEuvCHqIitwHWnKOxNn=s96-c",
       "createdOn": "2023-01-31T17:35:43.381Z",
       "id": "MLjCSdr3Eqgq0mU0rH4exC2e8O03",
-      "rating": 32.38
+      "rating": 3.85
     },
     {
       "name": "Dawid Mazurkiewicz",
@@ -264,6 +264,48 @@
       "rating": 1,
       "userId": "MLjCSdr3Eqgq0mU0rH4exC2e8O03",
       "id": 15
+    },
+    {
+      "comment": "Pięknie",
+      "rating": 5,
+      "userId": "MLjCSdr3Eqgq0mU0rH4exC2e8O03",
+      "id": 16
+    },
+    {
+      "comment": "aaa",
+      "rating": 4,
+      "userId": "MLjCSdr3Eqgq0mU0rH4exC2e8O03",
+      "id": 17
+    },
+    {
+      "comment": "Brawo",
+      "rating": 4,
+      "userId": "MLjCSdr3Eqgq0mU0rH4exC2e8O03",
+      "id": 18
+    },
+    {
+      "comment": "aaaa",
+      "rating": 4,
+      "userId": "MLjCSdr3Eqgq0mU0rH4exC2e8O03",
+      "id": 19
+    },
+    {
+      "comment": "Test timer",
+      "rating": 4,
+      "userId": "MLjCSdr3Eqgq0mU0rH4exC2e8O03",
+      "id": 20
+    },
+    {
+      "comment": "Test Timer Utils",
+      "rating": 5,
+      "userId": "MLjCSdr3Eqgq0mU0rH4exC2e8O03",
+      "id": 21
+    },
+    {
+      "comment": "TTT",
+      "rating": 5,
+      "userId": "MLjCSdr3Eqgq0mU0rH4exC2e8O03",
+      "id": 22
     }
   ]
 }

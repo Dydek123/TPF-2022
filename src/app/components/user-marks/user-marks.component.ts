@@ -1,13 +1,13 @@
 import {Component, OnInit} from '@angular/core';
-import {Context} from "../../shared/context";
-import {CardStatus} from "../../shared/card-status";
+import {Context} from "../../shared/enum/context";
+import {CardStatus} from "../../shared/enum/card-status";
 import {AuthService} from "../../services/auth.service";
 import {UserModel} from "../../shared/models/user.model";
-import {TravelUtils} from "../../shared/travel.utils";
+import {TravelUtils} from "../../shared/utils/travel.utils";
 import {CommentService} from "../../services/comment.service";
 import {CommentModel} from "../../shared/models/comment.model";
 import {HttpParams} from "@angular/common/http";
-import {UserUtils} from "../../shared/user.utils";
+import {UserUtils} from "../../shared/utils/user.utils";
 
 @Component({
   selector: 'app-user-marks',

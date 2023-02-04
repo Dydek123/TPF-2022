@@ -1,8 +1,8 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Travel} from "../../shared/models/travel.model";
 import {TravellService} from "../../services/travell.service";
-import {TravelUtils} from "../../shared/travel.utils";
-import {Context} from "../../shared/context";
+import {TravelUtils} from "../../shared/utils/travel.utils";
+import {Context} from "../../shared/enum/context";
 import {ReservationService} from "../../services/reservation.service";
 import {ReservationModel} from "../../shared/models/reservation.model";
 import {UserModel} from "../../shared/models/user.model";

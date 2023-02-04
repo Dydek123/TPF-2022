@@ -1,7 +1,7 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {UserModel} from "../../shared/models/user.model";
-import {TravelUtils} from "../../shared/travel.utils";
-import {UserUtils} from "../../shared/user.utils";
+import {TravelUtils} from "../../shared/utils/travel.utils";
+import {UserUtils} from "../../shared/utils/user.utils";
 
 @Component({
   selector: 'app-user-card',

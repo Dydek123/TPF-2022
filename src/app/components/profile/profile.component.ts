@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {Context} from "../../shared/context";
-import {CardStatus} from "../../shared/card-status";
+import {Context} from "../../shared/enum/context";
+import {CardStatus} from "../../shared/enum/card-status";
 import {Travel} from "../../shared/models/travel.model";
 import {TravellService} from "../../services/travell.service";
 import {AuthService} from "../../services/auth.service";

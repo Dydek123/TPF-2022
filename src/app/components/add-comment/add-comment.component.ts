@@ -3,6 +3,7 @@ import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {UserModel} from "../../shared/models/user.model";
 import {CommentService} from "../../services/comment.service";
 import {CommentModel} from "../../shared/models/comment.model";
+import {FormUtils} from "../../shared/utils/form.utils";
 
 @Component({
   selector: 'app-add-comment',
@@ -13,6 +14,7 @@ export class AddCommentComponent implements OnInit {
 
   form: FormGroup;
   isAdded: boolean;
+
   @Output() commentAdd: EventEmitter<CommentModel> = new EventEmitter<CommentModel>();
   @Output() closePopup: EventEmitter<void> = new EventEmitter<void>();
   @Input() user: UserModel;
@@ -23,6 +25,10 @@ export class AddCommentComponent implements OnInit {
 
   ngOnInit(): void {
     this.createForm();
+  }
+
+  get timer(): number {
+    return FormUtils.TIMER_SECONDS;
   }
 
   private createForm() {
@@ -38,10 +44,12 @@ export class AddCommentComponent implements OnInit {
       .subscribe((comment) => {
         this.commentAdd.emit(comment)
         this.isAdded = true;
+        FormUtils.startTimer();
         setTimeout(() => {
           this.isAdded = false;
           this.form.reset();
-        }, 5000)
+          FormUtils.pauseTimer();
+        }, FormUtils.RESET_TIMEOUT_MILISECONDS)
       });
   }
 

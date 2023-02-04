@@ -1,7 +1,7 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {CardStatus} from "../../shared/card-status";
+import {CardStatus} from "../../shared/enum/card-status";
 import {Travel} from "../../shared/models/travel.model";
-import {TravelUtils} from "../../shared/travel.utils";
+import {TravelUtils} from "../../shared/utils/travel.utils";
 
 @Component({
   selector: 'app-card',
