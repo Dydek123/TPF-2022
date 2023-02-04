@@ -136,6 +136,18 @@ app-sidebar {
   width: 8%;
 }
 
+@media only screen and (max-device-width: 420px) {
+  app-sidebar {
+    position: absolute;
+    width: auto;
+    z-index: 90;
+  }
+
+  .content {
+    width: 100% !important;
+  }
+}
+
 .content {
   width: 92%;
   background: #F6F8FF;
