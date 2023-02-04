@@ -1,5 +1,5 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {Context} from "../../shared/context";
+import {Context} from "../../shared/enum/context";
 
 @Component({
   selector: 'app-search-panel',

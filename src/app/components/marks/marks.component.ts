@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {CommentModel} from "../../shared/models/comment.model";
-import {UserUtils} from "../../shared/user.utils";
+import {UserUtils} from "../../shared/utils/user.utils";
 
 @Component({
   selector: 'app-marks',

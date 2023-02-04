@@ -1,12 +1,15 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Travel} from "../../shared/models/travel.model";
 import {TravellService} from "../../services/travell.service";
-import {TravelUtils} from "../../shared/travel.utils";
-import {Context} from "../../shared/context";
+import {TravelUtils} from "../../shared/utils/travel.utils";
+import {Context} from "../../shared/enum/context";
 import {ReservationService} from "../../services/reservation.service";
 import {ReservationModel} from "../../shared/models/reservation.model";
 import {UserModel} from "../../shared/models/user.model";
 import {forkJoin} from "rxjs";
+import {AuthService} from "../../services/auth.service";
+import firebase from "firebase/compat";
+import User = firebase.User;
 
 @Component({
   selector: 'app-profile-details',
@@ -19,6 +22,7 @@ export class ProfileDetailsComponent implements OnInit {
   showNotifications: boolean;
   successSubmit: boolean
   reservationList: ReservationModel[];
+  user: User | null;
 
   @Input() showButtons: boolean;
   @Input() context: Context;
@@ -28,7 +32,8 @@ export class ProfileDetailsComponent implements OnInit {
   @Output() onDeleteTravel: EventEmitter<Travel> = new EventEmitter<Travel>();
 
   constructor(private travelService: TravellService,
-              private reservationService: ReservationService) {
+              private reservationService: ReservationService,
+              private authService: AuthService) {
   }
 
   get isProfile(): boolean {
@@ -40,6 +45,7 @@ export class ProfileDetailsComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.getUser();
   }
 
   onNotificationClick() {
@@ -64,8 +70,13 @@ export class ProfileDetailsComponent implements OnInit {
   }
 
   onReservationClick(travel: Travel) {
-    this.reservationService.add(travel)
-      .subscribe();
+    if (this.user) {
+      this.addReservation(travel);
+    } else {
+      this.authService.GoogleAuth().then(() => {
+        this.addReservation(travel);
+      });
+    }
     this.successSubmit = true;
   }
 
@@ -98,5 +109,14 @@ export class ProfileDetailsComponent implements OnInit {
 
   togglePopup() {
     this.showCommentPopup = !this.showCommentPopup;
+  }
+
+  private getUser() {
+    this.authService.getUser()
+      .subscribe(user => this.user = user);
+  }
+
+  private addReservation(travel: Travel) {
+    this.reservationService.add(travel).subscribe();
   }
 }

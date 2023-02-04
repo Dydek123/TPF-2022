@@ -2,6 +2,10 @@
   <!--  <span style="height: 70px"></span>-->
   <img routerLink="/" src="https://cdn.pixabay.com/photo/2014/04/03/00/41/race-car-309123_960_720.png"
        alt="W3Schools.com">
+  <a routerLink="/szukaj" title="Wyszukiwarka przejazdów" [ngClass]="{'active-tab': checkURL('szukaj')}"><i
+    class="fa fa-car"></i>
+    Przejazdy
+  </a>
   <ng-container *ngIf="isLogged">
     <div
       style="display: flex;
@@ -14,10 +18,6 @@
         display: flex;
         flex-direction: column;"
       >
-        <a routerLink="/szukaj" title="Wyszukiwarka przejazdów" [ngClass]="{'active-tab': checkURL('szukaj')}"><i
-          class="fa fa-car"></i>
-          Przejazdy
-        </a>
         <a routerLink="/nowy-przejazd" title="Dodaj przejazd" [ngClass]="{'active-tab': checkURL('nowy-przejazd')}"><i
           class="fa fa-plus"></i>
           Dodaj przejazd
