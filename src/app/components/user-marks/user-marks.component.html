@@ -5,7 +5,7 @@
     <span class="divider"></span>
     <div style="overflow: auto">
       <ng-container *ngFor="let user of users">
-        <app-user-card [user]="user" (cardEvent)="onUserChanged($event)"></app-user-card>
+        <app-user-card [user]="user" (cardEvent)="onUserChanged($event)" [selectedUser]="selectedUser"></app-user-card>
       </ng-container>
     </div>
 

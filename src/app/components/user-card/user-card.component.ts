@@ -10,12 +10,19 @@ import {UserUtils} from "../../shared/user.utils";
 })
 export class UserCardComponent implements OnInit {
   @Input() user: UserModel;
+  @Input() selectedUser: UserModel | null;
   @Output() cardEvent: EventEmitter<UserModel> = new EventEmitter<UserModel>();
 
   constructor() {
   }
 
   ngOnInit(): void {
+  }
+
+  get isHighlighted(): boolean {
+    return !!this.user
+      && !!this.selectedUser
+      && this.user.id === this.selectedUser.id;
   }
 
   getUserPicture(user: UserModel) {
