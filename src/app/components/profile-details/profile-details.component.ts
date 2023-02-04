@@ -7,6 +7,9 @@ import {ReservationService} from "../../services/reservation.service";
 import {ReservationModel} from "../../shared/models/reservation.model";
 import {UserModel} from "../../shared/models/user.model";
 import {forkJoin} from "rxjs";
+import {AuthService} from "../../services/auth.service";
+import firebase from "firebase/compat";
+import User = firebase.User;
 
 @Component({
   selector: 'app-profile-details',
@@ -17,6 +20,7 @@ export class ProfileDetailsComponent implements OnInit {
 
   showNotifications: boolean;
   reservationList: ReservationModel[];
+  user: User | null;
 
   @Input() showButtons: boolean;
   @Input() context: Context;
@@ -26,7 +30,8 @@ export class ProfileDetailsComponent implements OnInit {
   @Output() onDeleteTravel: EventEmitter<Travel> = new EventEmitter<Travel>();
 
   constructor(private travelService: TravellService,
-              private reservationService: ReservationService) {
+              private reservationService: ReservationService,
+              private authService: AuthService) {
   }
 
   get isProfile(): boolean {
@@ -38,6 +43,7 @@ export class ProfileDetailsComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.getUser();
   }
 
   onNotificationClick() {
@@ -62,8 +68,18 @@ export class ProfileDetailsComponent implements OnInit {
   }
 
   onReservationClick(travel: Travel) {
-    this.reservationService.add(travel)
-      .subscribe();
+    console.log('Reservation');
+    // this.authService.getUser()
+    //   .pipe(
+    //     tap(user => console.log(user))
+    //   )
+    if (this.user) {
+      this.addReservation(travel);
+    } else {
+      this.authService.GoogleAuth().then(() => {
+        this.addReservation(travel);
+      });
+    }
   }
 
   deleteReservation(reservation: ReservationModel) {
@@ -91,5 +107,14 @@ export class ProfileDetailsComponent implements OnInit {
 
   isReservationListEmpty(): boolean {
     return !this.reservationList || this.reservationList.length === 0;
+  }
+
+  private getUser() {
+    this.authService.getUser()
+      .subscribe(user => this.user = user);
+  }
+
+  private addReservation(travel: Travel) {
+    this.reservationService.add(travel).subscribe();
   }
 }
