@@ -90,7 +90,7 @@
   }
   .search-panel {
     width: 100%;
-    height: 40vh;
+    height: 100vh;
   }
   .details-panel {
     width: 90%;
@@ -100,6 +100,7 @@
     flex-direction: column;
     margin-left: auto;
     margin-right: auto;
+    width: 100%;
   }
   #details-wrapper {
     flex-direction: column;
@@ -120,7 +121,6 @@
   }
   #details-wrapper > div {
     margin: auto;
-    width: 20vh;
   }
   #details-wrapper > div > h2 {
     text-align: center;
@@ -128,12 +128,18 @@
   #details > img {
     margin-right: 0px;
   }
-  #comment-section{
+  #comment-section {
     margin-top: 10px;
     flex-direction: column;
+    width: 100%;
   }
   #comment-section > h2 {
     text-align: center;
+  }
+
+  .popup {
+    width: 91%;
+    height: 91%;
   }
 
 }

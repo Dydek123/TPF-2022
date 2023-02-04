@@ -83,6 +83,7 @@
   display: flex;
   justify-content: space-between;
   width: 100%;
+  height: 44px;
 }
 
 #mark-wrapper {
@@ -216,10 +217,22 @@ button.is_active .success {
   display: block;
 }
 
+section {
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+}
+
 @media only screen and (max-device-width: 420px) {
   #details-wrapper {
     flex-direction: column;
     margin: auto;
+    height: auto;
+  }
+
+  section {
+    width: 100%;
+    height: 100%;
   }
 
   #details-wrapper > h2 {
@@ -239,7 +252,7 @@ button.is_active .success {
     margin: auto;
   }
   .comment-button {
-    width: 25vw;
+    width: 50%;
   }
   button + button {
     margin-top: 5px;
@@ -247,12 +260,36 @@ button.is_active .success {
   #travel-info > div > div {
     padding: 0.1em;
   }
-  #travel-info {
 
+  #travel-info {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    margin-bottom: 20px;
   }
+
   #travel-info > div {
     flex-direction: column;
     margin: 0.1em;
+  }
+
+  .details-panel {
+    height: 60vh !important;
+  }
+
+  #warning-button {
+    margin: 0;
+  }
+
+  #xd {
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  #action-button {
+    margin: unset;
   }
 }
 

@@ -1,5 +1,8 @@
-<section *ngIf="travel" style="height: 90vh; display: flex;flex-direction: column;">
-  <div class="details-panel">
+<section *ngIf="travel">
+  <button class="cancel-button">
+    <i class="fa-solid fa-xmark"></i>
+  </button>
+  <div class="details-panel" style="height: fit-content !important;">
     <div id="details" *ngIf="travel.user">
       <img id="details-panel-img"
            [src]="getUserPicture(travel.user)"
@@ -7,7 +10,7 @@
       <div id="details-wrapper">
         <h2>{{travel.user.name}}</h2>
         <div *ngIf="isProfile" style="display: flex; justify-content: end">
-          <button (click)="togglePopup()" class="comment-button">Twoje rezerwacje</button>
+          <button (click)="togglePopup()" class="comment-button" id="xd">Twoje rezerwacje</button>
         </div>
         <div *ngIf="isSearch">
           <button (click)="onReservationClick(travel)" [ngClass]="successSubmit ? 'is_active' : ''">

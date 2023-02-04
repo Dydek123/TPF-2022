@@ -25,6 +25,7 @@ input {
 app-profile-details {
   width: 70%;
 }
+
 @media only screen and (max-device-width: 420px) {
   .page-container{
     flex-direction: column;
@@ -32,7 +33,10 @@ app-profile-details {
   }
   .search-panel{
     width: 100%;
-    height: 40vh;
+  }
 
+  app-profile-details {
+    width: 90%;
+    height: 90%;
   }
 }
