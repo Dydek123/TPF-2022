@@ -31,6 +31,7 @@
       <ng-container *ngFor="let comment of commentList">
         <app-marks [comment]="comment"></app-marks>
       </ng-container>
+      <p *ngIf="hasAnyComment">Brak komentarzy o użytkowniku</p>
       <!--      <app-card [status]="cardStatus.SIMPLE_WITH_DESCRIPTION"></app-card>-->
     </div>
   </section>

@@ -30,6 +30,10 @@ export class UserMarksComponent implements OnInit {
     this.loadUsers();
   }
 
+  get hasAnyComment(): boolean {
+    return !this.commentList || this.commentList.length === 0;
+  }
+
   togglePopup() {
     this.showCommentPopup = !this.showCommentPopup;
   }
