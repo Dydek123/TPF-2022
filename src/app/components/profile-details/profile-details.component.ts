@@ -31,6 +31,7 @@ export class ProfileDetailsComponent implements OnInit {
   @Input() travel: Travel | null;
 
   @Output() onDeleteTravel: EventEmitter<Travel> = new EventEmitter<Travel>();
+  @Output() closePopup: EventEmitter<void> = new EventEmitter<void>();
 
   constructor(private travelService: TravellService,
               private reservationService: ReservationService,
@@ -59,6 +60,7 @@ export class ProfileDetailsComponent implements OnInit {
       this.travelService.deleteById(this.travel.id).subscribe();
       this.showNotifications = false;
       this.onDeleteTravel.emit(this.travel);
+      this.closePopup.emit();
     }
   }
 

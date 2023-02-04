@@ -1,5 +1,5 @@
 <div class="page-container">
-  <section class="search-panel">
+  <section class="search-panel" [style.filter]="isSmallScreen && showPopup ? 'blur(2px)' : 'blur(0px)'">
     <app-search-panel [context]="context" (searchChanged)="onSearch($event)"></app-search-panel>
     <span class="divider"></span>
     <div style="overflow: auto">
@@ -11,6 +11,6 @@
   </section>
 
   <app-profile-details [ngClass]="isSmallScreen ? 'popup' : ''" *ngIf="travels && (!isSmallScreen || showPopup)"
-                       [showButtons]="false" [context]="context"
+                       [showButtons]="false" [context]="context" (closePopup)="this.showPopup = false"
                        [travel]="selectedTravel"></app-profile-details>
 </div>

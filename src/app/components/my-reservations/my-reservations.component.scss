@@ -1,0 +1,10 @@
+.my-reservation-container {
+  width: 80%;
+  height: 90%
+}
+
+@media only screen and (max-device-width: 420px) {
+  .my-reservation-container {
+    width: 100%;
+  }
+}
