@@ -4,41 +4,50 @@
     <div class="did-floating-label-content">
       <input class="did-floating-input" type="text" placeholder="" formControlName="destination">
       <label class="did-floating-label">Miejsce docelowe</label>
+      <div *ngIf="showErrorForRequiredInput('destination')">Pole jest wymagane.</div>
     </div>
     <div class="did-floating-label-content">
       <input class="did-floating-input" type="text" placeholder="" formControlName="startPoint">
       <label class="did-floating-label">Miejsce wyjazdu</label>
+      <div *ngIf="showErrorForRequiredInput('startPoint')">Pole jest wymagane.</div>
     </div>
     <div class="did-floating-label-content">
       <input class="did-floating-input" type="datetime-local" placeholder="" formControlName="date">
       <label class="did-floating-label">Data i godzina</label>
+      <div *ngIf="showErrorForRequiredInput('date')">Pole jest wymagane.</div>
     </div>
     <div class="did-floating-label-content">
       <input class="did-floating-input" type="number" placeholder="" formControlName="freeSpace">
       <label class="did-floating-label">Ilość miejsc</label>
+      <div *ngIf="showErrorForRequiredInput('freeSpace')">Pole jest wymagane.</div>
+      <div *ngIf="showErrorForMinusValue('freeSpace')">Wartość nie może być mniejsza niż 0.</div>
     </div>
     <div class="did-floating-label-content">
       <input class="did-floating-input" type="text" placeholder="" formControlName="car">
       <label class="did-floating-label">Pojazd</label>
+      <div *ngIf="showErrorForRequiredInput('car')">Pole jest wymagane.</div>
     </div>
     <div class="did-floating-label-content">
       <input class="did-floating-input" type="number" placeholder="" formControlName="duration">
       <label class="did-floating-label">Czas trwania [min]</label>
+      <div *ngIf="showErrorForRequiredInput('duration')">Pole jest wymagane.</div>
+      <div *ngIf="showErrorForMinusValue('duration')">Wartość nie może być mniejsza niż 0.</div>
     </div>
     <div class="did-floating-label-content">
       <input class="did-floating-input" type="number" placeholder="" formControlName="cost"> <!-- TODO klasa dla walidatora did-floating-input-error-->
       <label class="did-floating-label">Cena [zł]</label>
+      <div *ngIf="showErrorForRequiredInput('cost')">Pole jest wymagane.</div>
     </div>
     <div class="validator-error" *ngIf="errorMessage">  <!-- TODO wyświetlanie tutaj informacji o walidacji lub błędzie-->
       {{errorMessage}}
     </div>
-    <button [ngClass]="successSubmit ? 'is_active' : ''" type="submit" [disabled]="form.invalid">
+    <button [ngClass]="successSubmit ? 'is_active' : ''" type="submit">
       <span>Dodaj</span>
       <div class="success">
         <svg version="1.1" viewBox="0 0 29.756 29.756" style="enable-background:new 0 0 29.756 29.756;"
              xml:space="preserve">
           <path
-                  d="M29.049,5.009L28.19,4.151c-0.943-0.945-2.488-0.945-3.434,0L10.172,18.737l-5.175-5.173   c-0.943-0.944-2.489-0.944-3.432,0.001l-0.858,0.857c-0.943,0.944-0.943,2.489,0,3.433l7.744,7.752   c0.944,0.943,2.489,0.943,3.433,0L29.049,8.442C29.991,7.498,29.991,5.953,29.049,5.009z"/>
+            d="M29.049,5.009L28.19,4.151c-0.943-0.945-2.488-0.945-3.434,0L10.172,18.737l-5.175-5.173   c-0.943-0.944-2.489-0.944-3.432,0.001l-0.858,0.857c-0.943,0.944-0.943,2.489,0,3.433l7.744,7.752   c0.944,0.943,2.489,0.943,3.433,0L29.049,8.442C29.991,7.498,29.991,5.953,29.049,5.009z"/>
         </svg>
       </div>
     </button>

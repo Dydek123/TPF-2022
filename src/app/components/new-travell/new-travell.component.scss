@@ -191,11 +191,19 @@ button.is_active .success {
 }
 
 @media only screen and (max-device-width: 420px) {
-  .my-form{
+  .my-form {
     width: 80%;
   }
   .form-panel {
     height: 90vh;
     width: 90%;
   }
+}
+
+.ng-valid:not(form) {
+  border-left: 5px solid #42A948; /* green */
+}
+
+.ng-invalid:not(form) {
+  border-left: 5px solid #a94442; /* red */
 }
