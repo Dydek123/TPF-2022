@@ -7,17 +7,26 @@
       <div id="details-wrapper">
         <h2>{{travel.user.name}}</h2>
         <div *ngIf="isProfile" style="display: flex; justify-content: end">
-          <button class="comment-button">Twoje rezerwacje</button>
+          <button (click)="togglePopup()" class="comment-button">Twoje rezerwacje</button>
         </div>
         <div *ngIf="isSearch">
-          <button class="comment-button" (click)="onReservationClick(travel)">Zarezerwuj</button>
+          <button (click)="onReservationClick(travel)" [ngClass]="successSubmit ? 'is_active' : ''">
+            <span>Zarezerwuj</span>
+            <div class="success">
+              <svg version="1.1" viewBox="0 0 29.756 29.756" style="enable-background:new 0 0 29.756 29.756;"
+                   xml:space="preserve">
+          <path
+            d="M29.049,5.009L28.19,4.151c-0.943-0.945-2.488-0.945-3.434,0L10.172,18.737l-5.175-5.173   c-0.943-0.944-2.489-0.944-3.432,0.001l-0.858,0.857c-0.943,0.944-0.943,2.489,0,3.433l7.744,7.752   c0.944,0.943,2.489,0.943,3.433,0L29.049,8.442C29.991,7.498,29.991,5.953,29.049,5.009z"/>
+        </svg>
+            </div>
+          </button>
         </div>
 
       </div>
     </div>
   </div>
 
-  <div class="details-panel" style="height: inherit">
+  <div class="details-panel" style="height: 80vh;">
     <div *ngIf="isProfile" style="display: flex; justify-content: end">
       <button class="comment-button" (click)="onNotificationClick()" style="margin-right: 1em;">Zgłoszenia</button>
       <button class="comment-button" id="warning-button" (click)="deleteTravel()">Odwołaj</button>
@@ -37,12 +46,16 @@
           <span>{{travel.startPoint}}</span>
         </div>
         <div>
-          <p>Cena</p>
-          <span>{{travel.cost}} zł</span>
+          <p>Cel</p>
+          <span>{{travel.destination}}</span>
         </div>
       </div>
 
       <div>
+        <div>
+          <p>Cena</p>
+          <span>{{travel.cost}} zł</span>
+        </div>
         <div>
           <p>Czas trwania</p>
           <span>{{travel.duration}} min</span>
@@ -59,31 +72,29 @@
     </div>
     <div class="map-container" *ngIf="!showNotifications">
     </div>
-  </div>
-
-  <div id="comment-section" *ngIf="showNotifications">
-    <div class="notification-wrapper" *ngFor="let reservation of reservationList">
-      <div id="details">
-        <img
-          [src]="getUserPicture(reservation.user)"
-          alt="image placeholder">
-        <h3>{{reservation.user.name}}</h3>
-        <i id="check" class="fa fa-check" *ngIf="reservation.isAccepted"></i>
-      </div>
-      <div *ngIf="reservation.isAccepted; else toAccept">
-        <button class="comment-button" id="warning-button" (click)="cancelReservation(reservation)">Anuluj</button>
-      </div>
-      <ng-template #toAccept>
-        <div>
-          <button class="comment-button" id="action-button" [ngClass]="!travelHasFreeSpace() ? 'disabled' : ''"
-                  (click)="acceptReservation(reservation)" [disabled]="!travelHasFreeSpace()">Potwierdź
-          </button><!--TODO dodać style do klasy disabled-->
-          <button class="comment-button" id="warning-button" (click)="deleteReservation(reservation)">Odmów</button>
+    <div id="comment-section" *ngIf="showNotifications" style="overflow: auto">
+      <div class="notification-wrapper" *ngFor="let reservation of reservationList">
+        <div id="details">
+          <img
+            [src]="getUserPicture(reservation.user)"
+            alt="image placeholder">
+          <h3>{{reservation.user.name}}</h3>
+          <i id="check" class="fa fa-check" *ngIf="reservation.isAccepted"></i>
         </div>
-      </ng-template>
+        <div *ngIf="reservation.isAccepted; else toAccept">
+          <button class="comment-button" id="warning-button" (click)="cancelReservation(reservation)">Anuluj</button>
+        </div>
+        <ng-template #toAccept>
+          <div>
+            <button class="comment-button" id="action-button" [ngClass]="!travelHasFreeSpace() ? 'disabled' : ''"
+                    (click)="acceptReservation(reservation)" [disabled]="!travelHasFreeSpace()">Potwierdź
+            </button><!--TODO dodać style do klasy disabled-->
+            <button class="comment-button" id="warning-button" (click)="deleteReservation(reservation)">Odmów</button>
+          </div>
+        </ng-template>
+      </div>
+      <span *ngIf="isReservationListEmpty()">Brak zgłoszeń</span>
     </div>
-    <span *ngIf="isReservationListEmpty()">Brak zgłoszeń</span>
   </div>
-
-
 </section>
+<app-my-reservations class="popup" *ngIf="showCommentPopup" (closePopup)="this.showCommentPopup = false"></app-my-reservations>

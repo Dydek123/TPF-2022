@@ -24,6 +24,8 @@ import {AddCommentComponent} from './components/add-comment/add-comment.componen
 import {MarksComponent} from './components/marks/marks.component';
 import {UserCardComponent} from './components/user-card/user-card.component';
 import {StarsComponent} from './components/stars/stars.component';
+import {MyReservationsComponent} from "./components/my-reservations/my-reservations.component";
+import {RouterModule} from "@angular/router";
 
 @NgModule({
   declarations: [
@@ -40,7 +42,8 @@ import {StarsComponent} from './components/stars/stars.component';
     AddCommentComponent,
     MarksComponent,
     UserCardComponent,
-    StarsComponent
+    StarsComponent,
+    MyReservationsComponent
   ],
   imports: [
     BrowserModule,
@@ -54,7 +57,8 @@ import {StarsComponent} from './components/stars/stars.component';
     FormsModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    RouterModule
   ],
   providers: [TravellService],
   bootstrap: [AppComponent]

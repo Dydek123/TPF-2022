@@ -114,14 +114,12 @@ button span {
 
 }
 
-
 .main-info {
-  margin-top: 5vh;
   display: flex;
   flex-direction: row;
   text-align: center;
-  height: 30vh;
-
+  height: 60vh;
+  align-items: center;
 }
 
 .main-text-placeholder > p {

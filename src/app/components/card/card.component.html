@@ -10,7 +10,7 @@
       </div>
       <ng-template #detailed>
         <h3>{{travel.user.name}}</h3>
-        <i class="fa fa-check" *ngIf="status === CardStatus.DETAILED"></i>
+<!--        <i class="fa fa-check" *ngIf="status === CardStatus.DETAILED"></i>-->
       </ng-template>
     </div>
     <div id="info" *ngIf="status === CardStatus.DETAILED">
@@ -46,5 +46,11 @@
         magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
         labore et dolore magna aliqua</p>
     </div>
+<!--    &lt;!&ndash;TODO Przycisk do rezygnacji z przejazdu&ndash;&gt;-->
+<!--    <div> -->
+<!--      <button class="cancel-button" style="color: red !important;">-->
+<!--        <i class="fa-solid fa-ban"></i>-->
+<!--      </button>-->
+<!--    </div>-->
   </div>
 </div>
