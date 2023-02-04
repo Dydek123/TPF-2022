@@ -71,6 +71,7 @@ export class ProfileDetailsComponent implements OnInit {
   }
 
   onReservationClick(travel: Travel) {
+    console.log(travel);
     if (this.user) {
       this.addReservation(travel);
     } else {
@@ -117,7 +118,10 @@ export class ProfileDetailsComponent implements OnInit {
   }
 
   private addReservation(travel: Travel) {
-    this.reservationService.add(travel)
+    if (!this.user) {
+      return;
+    }
+    this.reservationService.add(travel, this.user)
       .subscribe(() => {
         this.successSubmit = true
         setTimeout(() => {

@@ -8,7 +8,7 @@ import {environment} from "../../environments/environment";
   providedIn: 'root'
 })
 export class TravellService {
-  url: string = `${environment.apiUrl}/travel`;
+  url: string = `${environment.apiUrl}/travels`;
 
   constructor(private http: HttpClient) {
   }

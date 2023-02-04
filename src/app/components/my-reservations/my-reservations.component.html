@@ -2,5 +2,10 @@
   <button class="cancel-button" (click)="closePopup.emit()">
     <i class="fa-solid fa-xmark"></i>
   </button>
-  <app-card></app-card> <!-- TODO wyświetlanie przejazdów + to odwołanie przejazdu w komponencie masz kolejne todo z przyciskiem-->
+  <!--  {{reservationList}}-->
+  <ng-container *ngFor="let reservationModel of reservationList">
+    <app-card [status]="cardStatus" [canResign]="true" [reservation]="reservationModel"
+              (cancelReservation)="cancelReservation($event)"></app-card>
+    <!--    <app-card></app-card> &lt;!&ndash; TODO wyświetlanie przejazdów + to odwołanie przejazdu w komponencie masz kolejne todo z przyciskiem&ndash;&gt;-->
+  </ng-container>
 </div>
