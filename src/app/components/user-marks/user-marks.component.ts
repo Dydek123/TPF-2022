@@ -46,6 +46,10 @@ export class UserMarksComponent implements OnInit {
     this.showCommentPopup = !this.showCommentPopup;
   }
 
+  toggleDetailsPopup() {
+    this.showPopup = !this.showPopup;
+  }
+
   private loadUsers() {
     this.authService.getAllUsers()
       .subscribe(users => {

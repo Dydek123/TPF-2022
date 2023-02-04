@@ -1,5 +1,5 @@
 <section *ngIf="travel">
-  <button class="cancel-button">
+  <button class="cancel-button" style="display: none" (click)="closePopup.emit()">
     <i class="fa-solid fa-xmark"></i>
   </button>
   <div class="details-panel" style="height: fit-content !important;">
@@ -100,6 +100,6 @@
     </div>
   </div>
 </section>
-<app-my-reservations class="popup" *ngIf="showCommentPopup"
+<app-my-reservations style="overflow: auto" class="popup" *ngIf="showCommentPopup"
                      (closePopup)="this.showCommentPopup = false"
                      [user]="user"></app-my-reservations>
