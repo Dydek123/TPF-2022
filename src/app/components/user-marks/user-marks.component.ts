@@ -1,13 +1,13 @@
-import {Component, OnInit} from '@angular/core';
-import {Context} from "../../shared/context";
-import {CardStatus} from "../../shared/card-status";
+import {Component, HostListener, OnInit} from '@angular/core';
+import {Context} from "../../shared/enum/context";
+import {CardStatus} from "../../shared/enum/card-status";
 import {AuthService} from "../../services/auth.service";
 import {UserModel} from "../../shared/models/user.model";
-import {TravelUtils} from "../../shared/travel.utils";
+import {TravelUtils} from "../../shared/utils/travel.utils";
 import {CommentService} from "../../services/comment.service";
 import {CommentModel} from "../../shared/models/comment.model";
 import {HttpParams} from "@angular/common/http";
-import {UserUtils} from "../../shared/user.utils";
+import {UserUtils} from "../../shared/utils/user.utils";
 
 @Component({
   selector: 'app-user-marks',
@@ -21,13 +21,25 @@ export class UserMarksComponent implements OnInit {
   commentList: CommentModel[];
   users: UserModel[];
   selectedUser: UserModel;
+  isSmallScreen: boolean;
+  showPopup: boolean;
 
   constructor(private authService: AuthService,
               private commentService: CommentService) {
   }
 
   ngOnInit(): void {
+    this.verifySmallScreen();
     this.loadUsers();
+  }
+
+  @HostListener('window:resize', ['$event'])
+  private verifySmallScreen(): void {
+    this.isSmallScreen = window.innerWidth < 1000;
+  }
+
+  get hasAnyComment(): boolean {
+    return !this.commentList || this.commentList.length === 0;
   }
 
   togglePopup() {
@@ -38,7 +50,9 @@ export class UserMarksComponent implements OnInit {
     this.authService.getAllUsers()
       .subscribe(users => {
         this.users = users;
-        this.selectedUser = this.users[0];
+        if (this.isSmallScreen) {
+          this.selectedUser = this.users[0];
+        }
         this.loadComments();
       })
   }
@@ -65,6 +79,9 @@ export class UserMarksComponent implements OnInit {
   onUserChanged(event: UserModel) {
     this.selectedUser = event;
     this.loadComments();
+    if (this.isSmallScreen) {
+      this.showPopup = true;
+    }
   }
 
   private getAverageRating(): number {

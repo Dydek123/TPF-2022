@@ -1,6 +1,6 @@
-import {Component, OnInit} from '@angular/core';
-import {Context} from "../../shared/context";
-import {CardStatus} from "../../shared/card-status";
+import {Component, HostListener, OnInit} from '@angular/core';
+import {Context} from "../../shared/enum/context";
+import {CardStatus} from "../../shared/enum/card-status";
 import {Travel} from "../../shared/models/travel.model";
 import {TravellService} from "../../services/travell.service";
 import {AuthService} from "../../services/auth.service";
@@ -18,6 +18,8 @@ export class ProfileComponent implements OnInit {
   cardStatus: CardStatus = CardStatus.DETAILED;
   travels: Travel[];
   selectedTravel: Travel | null;
+  isSmallScreen: boolean;
+  showPopup: boolean;
   private user: User | null;
 
   constructor(private travelService: TravellService,
@@ -25,6 +27,7 @@ export class ProfileComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.verifySmallScreen();
     this.authService.getUser().subscribe(user => {
       this.user = user;
       if (user?.uid) {
@@ -33,8 +36,16 @@ export class ProfileComponent implements OnInit {
     })
   }
 
+  @HostListener('window:resize', ['$event'])
+  private verifySmallScreen(): void {
+    this.isSmallScreen = window.innerWidth < 1000;
+  }
+
   onCardChanged(event: Travel) {
     this.selectedTravel = event;
+    if (this.isSmallScreen) {
+      this.showPopup = true;
+    }
   }
 
   private getTravels(uid: string) {
@@ -42,7 +53,9 @@ export class ProfileComponent implements OnInit {
       .set('userId', uid);
     this.travelService.getAll(params).subscribe(travels => {
       this.travels = travels;
-      this.selectedTravel = travels.length > 0 ? travels[0] : null;
+      if (!this.isSmallScreen) {
+        this.selectedTravel = travels.length > 0 ? travels[0] : null;
+      }
     });
   }
 

@@ -2,6 +2,7 @@ import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {TravellService} from "../../services/travell.service";
 import {AuthService} from "../../services/auth.service";
+import {FormUtils} from "../../shared/utils/form.utils";
 
 @Component({
   selector: 'app-new-travell',
@@ -19,6 +20,10 @@ export class NewTravellComponent implements OnInit {
   constructor(private formBuilder: FormBuilder,
               private travellService: TravellService,
               private authService: AuthService) {
+  }
+
+  get timer(): number {
+    return FormUtils.TIMER_SECONDS;
   }
 
   ngOnInit(): void {
@@ -39,6 +44,7 @@ export class NewTravellComponent implements OnInit {
     this.travellService.add(this.form.value)
       .subscribe(() => {
         this.successSubmit = true;
+        FormUtils.startTimer();
         this.restoreTravelForm();
       }, error => {
         this.errorMessage = error;
@@ -49,7 +55,8 @@ export class NewTravellComponent implements OnInit {
     setTimeout(() => {
       this.successSubmit = false;
       this.form.reset();
-    }, 5000);
+      FormUtils.pauseTimer();
+    }, FormUtils.RESET_TIMEOUT_MILISECONDS);
   }
 
   private setUserId() {

@@ -30,7 +30,6 @@ export class AuthService {
           this.saveDbUser(result.user);
         }
         if (result.user) {
-          this.router.navigate(['/profil']);
           return true;
         } else {
           this.afAuth.signOut();

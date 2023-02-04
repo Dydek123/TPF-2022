@@ -1,5 +1,5 @@
 import {Component, Input} from '@angular/core';
-import {UserUtils} from "../../shared/user.utils";
+import {UserUtils} from "../../shared/utils/user.utils";
 
 @Component({
   selector: 'app-stars',

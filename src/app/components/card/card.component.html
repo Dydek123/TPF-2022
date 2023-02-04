@@ -1,5 +1,5 @@
 <div class="user-cards-container">
-  <div class="user-card" (click)="cardEvent.emit(travel)">  <!--  TODO zmienić na user-card-active-->
+  <div [ngClass]="isHighlighted ? 'user-card-active' : 'user-card'" (click)="cardEvent.emit(travel)">
     <div id="details" *ngIf="travel && travel.user">
       <img
         [src]="getUserPicture(travel)"

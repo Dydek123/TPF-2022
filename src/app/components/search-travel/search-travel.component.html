@@ -4,11 +4,13 @@
     <span class="divider"></span>
     <div style="overflow: auto">
       <ng-container *ngFor="let travel of travels">
-        <app-card [status]="cardStatus" [travel]="travel" (cardEvent)="onCardChanged($event)"></app-card>
+        <app-card [status]="cardStatus" [travel]="travel" (cardEvent)="onCardChanged($event)"
+                  [selectedTravel]="selectedTravel"></app-card>
       </ng-container>
     </div>
   </section>
 
-  <app-profile-details *ngIf="travels" [showButtons]="false" [context]="context"
+  <app-profile-details [ngClass]="isSmallScreen ? 'popup' : ''" *ngIf="travels && (!isSmallScreen || showPopup)"
+                       [showButtons]="false" [context]="context"
                        [travel]="selectedTravel"></app-profile-details>
 </div>

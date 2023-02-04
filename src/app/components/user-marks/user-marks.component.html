@@ -5,13 +5,13 @@
     <span class="divider"></span>
     <div style="overflow: auto">
       <ng-container *ngFor="let user of users">
-        <app-user-card [user]="user" (cardEvent)="onUserChanged($event)"></app-user-card>
+        <app-user-card [user]="user" (cardEvent)="onUserChanged($event)" [selectedUser]="selectedUser"></app-user-card>
       </ng-container>
     </div>
 
   </section>
 
-  <section class="details-panel">
+  <section class="details-panel" [ngClass]="isSmallScreen ? 'popup' : ''" *ngIf="!isSmallScreen || showPopup">
     <div id="details">
       <img id="details-panel-img"
            [src]="getUserPicture()"
@@ -31,6 +31,7 @@
       <ng-container *ngFor="let comment of commentList">
         <app-marks [comment]="comment"></app-marks>
       </ng-container>
+      <p *ngIf="hasAnyComment">Brak komentarzy o użytkowniku</p>
       <!--      <app-card [status]="cardStatus.SIMPLE_WITH_DESCRIPTION"></app-card>-->
     </div>
   </section>

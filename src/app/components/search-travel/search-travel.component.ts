@@ -1,6 +1,6 @@
-import {Component, OnInit} from '@angular/core';
-import {Context} from "../../shared/context";
-import {CardStatus} from "../../shared/card-status";
+import {Component, HostListener, OnInit} from '@angular/core';
+import {Context} from "../../shared/enum/context";
+import {CardStatus} from "../../shared/enum/card-status";
 import {TravellService} from "../../services/travell.service";
 import {Travel} from "../../shared/models/travel.model";
 import {HttpParams} from "@angular/common/http";
@@ -17,19 +17,30 @@ export class SearchTravelComponent implements OnInit {
   cardStatus: CardStatus = CardStatus.DETAILED;
   travels: Travel[];
   selectedTravel: Travel | null;
+  isSmallScreen: boolean;
+  showPopup: boolean;
 
   constructor(private travelService: TravellService,
               private route: ActivatedRoute) {
   }
 
   ngOnInit(): void {
+    this.verifySmallScreen();
     this.route.queryParams.subscribe(param => {
       this.getTravels(this.getQueryParams(param));
     });
   }
 
+  @HostListener('window:resize', ['$event'])
+  private verifySmallScreen(): void {
+    this.isSmallScreen = window.innerWidth < 1000;
+  }
+
   onCardChanged(event: Travel) {
     this.selectedTravel = event;
+    if (this.isSmallScreen) {
+      this.showPopup = true;
+    }
   }
 
   onSearch(event: string) {
@@ -45,7 +56,9 @@ export class SearchTravelComponent implements OnInit {
     this.travelService.getAll(params)
       .subscribe(travels => {
         this.travels = travels;
-        this.selectedTravel = travels.length > 0 ? travels[0] : null;
+        if (!this.isSmallScreen) {
+          this.selectedTravel = travels.length > 0 ? travels[0] : null;
+        }
       });
   }
 
