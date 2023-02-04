@@ -1,5 +1,6 @@
 <div class="page-container">
-  <section class="search-panel" [style.filter]="isSmallScreen && showPopup ? 'blur(2px)' : 'blur(0px)'">
+  <section class="search-panel"
+           [style.filter]="isSmallScreen && showPopup || showCommentPopup ? 'blur(2px)' : 'blur(0px)'">
 
     <app-search-panel [context]="context" (searchChanged)="onSearch($event)"></app-search-panel>
     <span class="divider"></span>
@@ -11,7 +12,8 @@
 
   </section>
 
-  <section class="details-panel" [ngClass]="isSmallScreen ? 'popup' : ''" *ngIf="!isSmallScreen || showPopup">
+  <section class="details-panel" [ngClass]="isSmallScreen ? 'popup' : ''" *ngIf="!isSmallScreen || showPopup"
+           [style.filter]="showCommentPopup ? 'blur(2px)' : 'blur(0px)'">
     <button class="cancel-button" style="display: none" (click)="toggleDetailsPopup()">
       <i class="fa-solid fa-xmark"></i>
     </button>
