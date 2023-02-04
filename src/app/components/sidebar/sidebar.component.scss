@@ -31,3 +31,13 @@ a {
 a:hover {
   color: rgb(102, 101, 101);
 }
+
+
+
+
+@media only screen and (max-device-width: 420px) {
+  .sidebar {
+    position: absolute;
+    z-index: 90;
+  }
+}
