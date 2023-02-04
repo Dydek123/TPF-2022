@@ -38,16 +38,16 @@ export class ProfileDetailsComponent implements OnInit {
               private authService: AuthService) {
   }
 
+  ngOnInit(): void {
+    this.getUser();
+  }
+
   get isProfile(): boolean {
     return this.context === Context.PROFILE;
   }
 
   get isSearch(): boolean {
     return this.context === Context.TRAVEL_SEARCH;
-  }
-
-  ngOnInit(): void {
-    this.getUser();
   }
 
   onNotificationClick() {
@@ -95,13 +95,6 @@ export class ProfileDetailsComponent implements OnInit {
     return !!this.travel && !!this.travel.freeSpace && this.travel.freeSpace >= 1;
   }
 
-  private changeReservation(reservation: ReservationModel, isAccepted: boolean) {
-    if (this.travel) {
-      forkJoin([this.travelService.acceptReservation(this.travel, isAccepted),
-        this.reservationService.acceptReservation(reservation, isAccepted)]).subscribe();
-    }
-  }
-
   isReservationListEmpty(): boolean {
     return !this.reservationList || this.reservationList.length === 0;
   }
@@ -122,9 +115,7 @@ export class ProfileDetailsComponent implements OnInit {
     this.reservationService.add(travel, this.user)
       .subscribe(() => {
         this.successSubmit = true
-        setTimeout(() => {
-          this.successSubmit = false;
-        }, FormUtils.RESET_TIMEOUT_MILISECONDS)
+        this.resetButtonWithTimeout();
       });
   }
 
@@ -135,5 +126,18 @@ export class ProfileDetailsComponent implements OnInit {
           this.reservationList = reservations;
         });
     }
+  }
+
+  private changeReservation(reservation: ReservationModel, isAccepted: boolean) {
+    if (this.travel) {
+      forkJoin([this.travelService.acceptReservation(this.travel, isAccepted),
+        this.reservationService.acceptReservation(reservation, isAccepted)]).subscribe();
+    }
+  }
+
+  private resetButtonWithTimeout() {
+    setTimeout(() => {
+      this.successSubmit = false;
+    }, FormUtils.RESET_TIMEOUT_MILISECONDS)
   }
 }

@@ -147,3 +147,15 @@ button.is_active .success {
 .rating input[type="radio"]:checked ~ label {
   color: #ffc107;
 }
+
+.container {
+  width: 80%;
+  height: 90%;
+}
+
+.form-container {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}

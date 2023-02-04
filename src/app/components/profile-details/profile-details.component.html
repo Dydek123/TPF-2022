@@ -91,7 +91,7 @@
           <div>
             <button class="comment-button" id="action-button" [ngClass]="!travelHasFreeSpace() ? 'disabled' : ''"
                     (click)="acceptReservation(reservation)" [disabled]="!travelHasFreeSpace()">Potwierdź
-            </button><!--TODO dodać style do klasy disabled-->
+            </button>
             <button class="comment-button" id="warning-button" (click)="deleteReservation(reservation)">Odmów</button>
           </div>
         </ng-template>

@@ -24,7 +24,7 @@ export class ReservationService {
     const params = {
       travelId: id
     }
-    return this.http.get<ReservationModel[]>(this.url + '?_expand=user&_expand=travel', {params}); //TODO remove expand
+    return this.http.get<ReservationModel[]>(this.url + '?_expand=user&_expand=travel', {params});
   }
 
   add(data: Travel, user: User): Observable<ReservationModel> {

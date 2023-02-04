@@ -7,7 +7,6 @@ import {TravelUtils} from "../../shared/utils/travel.utils";
 import {CommentService} from "../../services/comment.service";
 import {CommentModel} from "../../shared/models/comment.model";
 import {HttpParams} from "@angular/common/http";
-import {UserUtils} from "../../shared/utils/user.utils";
 
 @Component({
   selector: 'app-user-marks',
@@ -33,11 +32,6 @@ export class UserMarksComponent implements OnInit {
     this.loadUsers();
   }
 
-  @HostListener('window:resize', ['$event'])
-  private verifySmallScreen(): void {
-    this.isSmallScreen = window.innerWidth < 1000;
-  }
-
   get hasAnyComment(): boolean {
     return !this.commentList || this.commentList.length === 0;
   }
@@ -50,26 +44,8 @@ export class UserMarksComponent implements OnInit {
     this.showPopup = !this.showPopup;
   }
 
-  private loadUsers() {
-    this.authService.getAllUsers()
-      .subscribe(users => {
-        this.users = users;
-        if (this.isSmallScreen) {
-          this.selectedUser = this.users[0];
-        }
-        this.loadComments();
-      })
-  }
-
   getUserPicture(): string {
     return TravelUtils.getUserPicture(this.selectedUser);
-  }
-
-  private loadComments() {
-    this.commentService.getAllForUser(String(this.selectedUser.id))
-      .subscribe(comments => {
-        this.commentList = comments;
-      })
   }
 
   onCommentAdd(event: CommentModel) {
@@ -88,10 +64,6 @@ export class UserMarksComponent implements OnInit {
     }
   }
 
-  private getAverageRating(): number {
-    return this.commentList.reduce((a, b) => a + b.rating, 0) / this.commentList.length;
-  }
-
   onSearch(event: string) {
     let params = new HttpParams()
     if (event) {
@@ -103,7 +75,30 @@ export class UserMarksComponent implements OnInit {
       });
   }
 
-  getStarColor(starOrder: number): string {
-    return UserUtils.getStarColor(this.selectedUser.rating, starOrder)
+  @HostListener('window:resize', ['$event'])
+  private verifySmallScreen(): void {
+    this.isSmallScreen = window.innerWidth < 1000;
+  }
+
+  private loadUsers() {
+    this.authService.getAllUsers()
+      .subscribe(users => {
+        this.users = users;
+        if (this.isSmallScreen) {
+          this.selectedUser = this.users[0];
+        }
+        this.loadComments();
+      })
+  }
+
+  private loadComments() {
+    this.commentService.getAllForUser(String(this.selectedUser.id))
+      .subscribe(comments => {
+        this.commentList = comments;
+      })
+  }
+
+  private getAverageRating(): number {
+    return this.commentList.reduce((a, b) => a + b.rating, 0) / this.commentList.length;
   }
 }

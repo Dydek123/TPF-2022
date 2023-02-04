@@ -13,10 +13,10 @@ export class CardComponent implements OnInit {
   CardStatus = CardStatus;
   @Input() status: CardStatus;
   @Input() travel: Travel;
-
   @Input() reservation: ReservationModel;
   @Input() selectedTravel: Travel | null;
   @Input() canResign: boolean;
+
   @Output() cardEvent: EventEmitter<Travel> = new EventEmitter<Travel>();
   @Output() cancelReservation: EventEmitter<ReservationModel> = new EventEmitter<ReservationModel>();
 

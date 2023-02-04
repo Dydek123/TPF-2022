@@ -5,7 +5,7 @@
       "picture": "https://lh3.googleusercontent.com/a/AEdFTp6cBCN_E0gqNq7fxBU5AXEuvCHqIitwHWnKOxNn=s96-c",
       "createdOn": "2023-01-31T17:35:43.381Z",
       "id": "MLjCSdr3Eqgq0mU0rH4exC2e8O03",
-      "rating": 32.38
+      "rating": 3.64
     },
     {
       "name": "Dawid Mazurkiewicz",
@@ -69,7 +69,17 @@
       "userId": "BUls3nTSDpObURY4f7YEJ0YOBam1",
       "cost": 30,
       "createdOn": "2023-01-31T17:41:18.422Z",
-      "id": 12
+      "id": 12,
+      "user": {
+        "name": "Dawid Mazurkiewicz",
+        "rating": 5,
+        "createdOn": {
+          "seconds": 1675346401,
+          "nanoseconds": 347000000
+        },
+        "picture": "https://lh3.googleusercontent.com/a/AEdFTp6cBCN_E0gqNq7fxBU5AXEuvCHqIitwHWnKOxNn=s96-c",
+        "id": "BUls3nTSDpObURY4f7YEJ0YOBam1"
+      }
     },
     {
       "destination": "Lubaczów",
@@ -82,18 +92,6 @@
       "cost": 50,
       "createdOn": "2023-01-31T20:04:51.137Z",
       "id": 13
-    },
-    {
-      "destination": "Test",
-      "startPoint": "Testowo",
-      "date": "2023-01-25T22:54",
-      "freeSpace": 3,
-      "car": "Audi A4",
-      "duration": 500,
-      "userId": "BUls3nTSDpObURY4f7YEJ0YOBam1",
-      "cost": 100,
-      "createdOn": "2023-01-31T21:54:15.025Z",
-      "id": 14
     },
     {
       "destination": "Wrocław",
@@ -159,6 +157,40 @@
       "cost": 300,
       "createdOn": "2023-02-04T17:07:27.264Z",
       "id": 18
+    },
+    {
+      "destination": "Lubaczów",
+      "startPoint": "Kraków",
+      "date": "2023-02-04T19:00",
+      "freeSpace": 5,
+      "car": "Multipla",
+      "duration": 100,
+      "userId": "BUls3nTSDpObURY4f7YEJ0YOBam1",
+      "cost": 50,
+      "createdOn": "2023-02-04T18:09:08.554Z",
+      "id": 19,
+      "user": {
+        "name": "Dawid Mazurkiewicz",
+        "rating": 5,
+        "createdOn": {
+          "seconds": 1675346401,
+          "nanoseconds": 347000000
+        },
+        "picture": "https://lh3.googleusercontent.com/a/AEdFTp6cBCN_E0gqNq7fxBU5AXEuvCHqIitwHWnKOxNn=s96-c",
+        "id": "BUls3nTSDpObURY4f7YEJ0YOBam1"
+      }
+    },
+    {
+      "destination": "Lubaczów",
+      "startPoint": "Kraków",
+      "date": "2023-02-04T21:20",
+      "freeSpace": 3,
+      "car": "BMW",
+      "duration": 150,
+      "userId": "BUls3nTSDpObURY4f7YEJ0YOBam1",
+      "cost": 150,
+      "createdOn": "2023-02-04T20:20:46.895Z",
+      "id": 20
     }
   ],
   "reservation": [
@@ -212,7 +244,29 @@
       "travelId": 12,
       "isAccepted": false,
       "createdOn": "2023-01-31T19:28:19.862Z",
-      "id": 6
+      "id": 6,
+      "user": {
+        "name": "Dawid Mazurkiewicz",
+        "rating": 5,
+        "createdOn": {
+          "seconds": 1675346401,
+          "nanoseconds": 347000000
+        },
+        "picture": "https://lh3.googleusercontent.com/a/AEdFTp6cBCN_E0gqNq7fxBU5AXEuvCHqIitwHWnKOxNn=s96-c",
+        "id": "BUls3nTSDpObURY4f7YEJ0YOBam1"
+      },
+      "travel": {
+        "destination": "Kraków",
+        "startPoint": "Lubaczów",
+        "date": "2023-02-04T18:40",
+        "freeSpace": 1,
+        "car": "Toyota RAV-4",
+        "duration": 150,
+        "userId": "BUls3nTSDpObURY4f7YEJ0YOBam1",
+        "cost": 30,
+        "createdOn": "2023-01-31T17:41:18.422Z",
+        "id": 12
+      }
     },
     {
       "userId": "BUls3nTSDpObURY4f7YEJ0YOBam1",
@@ -424,46 +478,6 @@
       "isAccepted": false,
       "createdOn": "2023-02-04T17:08:04.697Z",
       "id": 33
-    },
-    {
-      "userId": "p4qGposkHZQY6uYzWyyPyVpcEG23",
-      "passengerId": "BUls3nTSDpObURY4f7YEJ0YOBam1",
-      "travelId": 18,
-      "isAccepted": false,
-      "createdOn": "2023-02-04T17:16:21.123Z",
-      "id": 34
-    },
-    {
-      "userId": "BUls3nTSDpObURY4f7YEJ0YOBam1",
-      "passengerId": "BUls3nTSDpObURY4f7YEJ0YOBam1",
-      "travelId": 15,
-      "isAccepted": false,
-      "createdOn": "2023-02-04T17:16:33.160Z",
-      "id": 35
-    },
-    {
-      "userId": "p4qGposkHZQY6uYzWyyPyVpcEG23",
-      "passengerId": "BUls3nTSDpObURY4f7YEJ0YOBam1",
-      "travelId": 18,
-      "isAccepted": false,
-      "createdOn": "2023-02-04T17:19:58.693Z",
-      "id": 36
-    },
-    {
-      "userId": "p4qGposkHZQY6uYzWyyPyVpcEG23",
-      "passengerId": "BUls3nTSDpObURY4f7YEJ0YOBam1",
-      "travelId": 18,
-      "isAccepted": false,
-      "createdOn": "2023-02-04T17:20:02.744Z",
-      "id": 37
-    },
-    {
-      "userId": "BUls3nTSDpObURY4f7YEJ0YOBam1",
-      "passengerId": "BUls3nTSDpObURY4f7YEJ0YOBam1",
-      "travelId": 14,
-      "isAccepted": false,
-      "createdOn": "2023-02-04T17:20:52.756Z",
-      "id": 38
     }
   ],
   "marks": [
@@ -562,6 +576,12 @@
       "rating": 4,
       "userId": "p4qGposkHZQY6uYzWyyPyVpcEG23",
       "id": 16
+    },
+    {
+      "comment": "Test reformat",
+      "rating": 5,
+      "userId": "MLjCSdr3Eqgq0mU0rH4exC2e8O03",
+      "id": 17
     }
   ]
 }
