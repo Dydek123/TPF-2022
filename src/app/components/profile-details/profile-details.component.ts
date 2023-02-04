@@ -51,17 +51,13 @@ export class ProfileDetailsComponent implements OnInit {
 
   onNotificationClick() {
     this.showNotifications = !this.showNotifications;
-    if (this.travel?.id) {
-      this.reservationService.getByTravelId(Number(this.travel.id))
-        .subscribe(reservations => {
-          this.reservationList = reservations;
-        });
-    }
+    this.getNotifications();
   }
 
   deleteTravel() {
     if (this.travel?.id) {
       this.travelService.deleteById(this.travel.id).subscribe();
+      this.showNotifications = false;
       this.onDeleteTravel.emit(this.travel);
     }
   }
@@ -71,7 +67,6 @@ export class ProfileDetailsComponent implements OnInit {
   }
 
   onReservationClick(travel: Travel) {
-    console.log(travel);
     if (this.user) {
       this.addReservation(travel);
     } else {
@@ -83,6 +78,7 @@ export class ProfileDetailsComponent implements OnInit {
 
   deleteReservation(reservation: ReservationModel) {
     this.reservationService.deleteReservation(reservation).subscribe();
+    this.getNotifications();
   }
 
   acceptReservation(reservation: ReservationModel) {
@@ -128,5 +124,14 @@ export class ProfileDetailsComponent implements OnInit {
           this.successSubmit = false;
         }, FormUtils.RESET_TIMEOUT_MILISECONDS)
       });
+  }
+
+  private getNotifications() {
+    if (this.travel?.id) {
+      this.reservationService.getByTravelId(Number(this.travel.id))
+        .subscribe(reservations => {
+          this.reservationList = reservations;
+        });
+    }
   }
 }
