@@ -38,7 +38,7 @@ export class AuthService {
         }
       })
       .catch((error) => {
-        console.log(error);
+        console.error(error);
         return false;
       });
   }
@@ -60,7 +60,7 @@ export class AuthService {
     const user = new UserModel(result?.displayName, result?.photoURL);
     user.createdOn = new Date();
     user.id = result?.uid;
-    this.http.post(AuthService.USER_URL, user).subscribe(user => console.log(user));
+    this.http.post(AuthService.USER_URL, user).subscribe();
   }
 
   updateRating(user: UserModel, averageRating: string): Observable<UserModel> {
