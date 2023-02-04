@@ -8,4 +8,5 @@
               (cancelReservation)="cancelReservation($event)"></app-card>
     <!--    <app-card></app-card> &lt;!&ndash; TODO wyświetlanie przejazdów + to odwołanie przejazdu w komponencie masz kolejne todo z przyciskiem&ndash;&gt;-->
   </ng-container>
+  <span *ngIf="!reservationList || reservationList.length == 0">Brak rezerwacji</span>
 </div>
