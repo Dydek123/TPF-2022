@@ -31,11 +31,6 @@ export class SearchTravelComponent implements OnInit {
     });
   }
 
-  @HostListener('window:resize', ['$event'])
-  private verifySmallScreen(): void {
-    this.isSmallScreen = window.innerWidth < 1000;
-  }
-
   onCardChanged(event: Travel) {
     this.selectedTravel = event;
     if (this.isSmallScreen) {
@@ -51,6 +46,10 @@ export class SearchTravelComponent implements OnInit {
     this.getTravels(params);
   }
 
+  @HostListener('window:resize', ['$event'])
+  private verifySmallScreen(): void {
+    this.isSmallScreen = window.innerWidth < 1000;
+  }
 
   private getTravels(params: HttpParams) {
     this.travelService.getAll(params)

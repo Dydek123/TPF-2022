@@ -14,14 +14,7 @@ export class TravellService {
   }
 
   getAll(params?: HttpParams): Observable<Travel[]> {
-    return this.http.get<Travel[]>(this.url + '?_expand=user&_sort=id&_order=desc', {params}); //TODO remove expand
-  }
-
-  getByUserId(id: string): Observable<Travel[]> {
-    const params = {
-      userId: id
-    }
-    return this.http.get<Travel[]>(this.url + '?_expand=user', {params}); //TODO remove expand
+    return this.http.get<Travel[]>(this.url + '?_expand=user&_sort=id&_order=desc', {params});
   }
 
   add(data: Travel): Observable<Travel> {

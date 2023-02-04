@@ -36,27 +36,11 @@ export class ProfileComponent implements OnInit {
     })
   }
 
-  @HostListener('window:resize', ['$event'])
-  private verifySmallScreen(): void {
-    this.isSmallScreen = window.innerWidth < 1000;
-  }
-
   onCardChanged(event: Travel) {
     this.selectedTravel = event;
     if (this.isSmallScreen) {
       this.showPopup = true;
     }
-  }
-
-  private getTravels(uid: string) {
-    const params = new HttpParams()
-      .set('userId', uid);
-    this.travelService.getAll(params).subscribe(travels => {
-      this.travels = travels;
-      if (!this.isSmallScreen) {
-        this.selectedTravel = travels.length > 0 ? travels[0] : null;
-      }
-    });
   }
 
   onDeleteTravel(event: Travel) {
@@ -72,6 +56,11 @@ export class ProfileComponent implements OnInit {
       });
   }
 
+  @HostListener('window:resize', ['$event'])
+  private verifySmallScreen(): void {
+    this.isSmallScreen = window.innerWidth < 1000;
+  }
+
   private getHttpParams(event: string) {
     let params = new HttpParams();
     if (event) {
@@ -81,5 +70,16 @@ export class ProfileComponent implements OnInit {
       params = params.set('userId', this.user.uid);
     }
     return params;
+  }
+
+  private getTravels(uid: string) {
+    const params = new HttpParams()
+      .set('userId', uid);
+    this.travelService.getAll(params).subscribe(travels => {
+      this.travels = travels;
+      if (!this.isSmallScreen) {
+        this.selectedTravel = travels.length > 0 ? travels[0] : null;
+      }
+    });
   }
 }

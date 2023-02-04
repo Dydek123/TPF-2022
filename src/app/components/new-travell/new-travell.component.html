@@ -34,11 +34,11 @@
       <div *ngIf="showErrorForMinusValue('duration')">Wartość nie może być mniejsza niż 0.</div>
     </div>
     <div class="did-floating-label-content">
-      <input class="did-floating-input" type="number" placeholder="" formControlName="cost"> <!-- TODO klasa dla walidatora did-floating-input-error-->
+      <input class="did-floating-input" type="number" placeholder="" formControlName="cost">
       <label class="did-floating-label">Cena [zł]</label>
       <div *ngIf="showErrorForRequiredInput('cost')">Pole jest wymagane.</div>
     </div>
-    <div class="validator-error" *ngIf="errorMessage">  <!-- TODO wyświetlanie tutaj informacji o walidacji lub błędzie-->
+    <div class="validator-error" *ngIf="errorMessage">
       {{errorMessage}}
     </div>
     <button [ngClass]="successSubmit ? 'is_active' : ''" type="submit">

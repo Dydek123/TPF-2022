@@ -27,26 +27,11 @@
         <span>{{travel.cost}} zł</span>
       </div>
     </div>
-
-    <div id="info" *ngIf="status === CardStatus.SIMPLE_MARKS">
-      <div>
-        <p>Ocena</p>
-        <div class="star-container">
-          <!-- Tu nie wiem jak to zrobić bo to zależy od impoementacji. Można potem zrobić dwie klasy css np. jedna bedzie wypełniała na żółto a druga nie -->
-          <i class="fa fa-star"></i>
-          <i class="fa fa-star"></i>
-          <i class="fa fa-star"></i>
-          <i class="fa fa-star"></i>
-          <i class="fa fa-star"></i>
-        </div>
-      </div>
-    </div>
     <div *ngIf="status === CardStatus.SIMPLE_WITH_DESCRIPTION">
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
         magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
         labore et dolore magna aliqua</p>
     </div>
-    <!--TODO Przycisk do rezygnacji z przejazdu-->
     <div *ngIf="canResign">
       <button class="cancel-button" style="color: red !important;" (click)="cancelReservation.emit(reservation)">
         <i class="fa-solid fa-ban"></i>

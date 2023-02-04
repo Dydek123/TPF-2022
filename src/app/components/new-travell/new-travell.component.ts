@@ -43,18 +43,18 @@ export class NewTravellComponent implements OnInit {
 
   onSubmit() {
     if (this.form.valid) {
-      this.travellService.add(this.form.value)
-        .subscribe(() => {
-          this.successSubmit = true;
-          this.isFormInvalid = false;
-          FormUtils.startTimer();
-          this.restoreTravelForm();
-        }, error => {
-          this.errorMessage = error;
-        });
+      this.addTravel();
     } else {
       this.isFormInvalid = true;
     }
+  }
+
+  showErrorForRequiredInput(controlName: string): boolean {
+    return this.isFormInvalid && this.form.controls[controlName].errors?.['required'];
+  }
+
+  showErrorForMinusValue(controlName: string) {
+    return this.isFormInvalid && this.form.controls[controlName].errors?.['min'];
   }
 
   private restoreTravelForm() {
@@ -71,15 +71,15 @@ export class NewTravellComponent implements OnInit {
     });
   }
 
-  test() {
-    console.log(this.form);
-  }
-
-  showErrorForRequiredInput(controlName: string): boolean {
-    return this.isFormInvalid && this.form.controls[controlName].errors?.['required'];
-  }
-
-  showErrorForMinusValue(controlName: string) {
-    return this.isFormInvalid && this.form.controls[controlName].errors?.['min'];
+  private addTravel() {
+    this.travellService.add(this.form.value)
+      .subscribe(() => {
+        this.successSubmit = true;
+        this.isFormInvalid = false;
+        FormUtils.startTimer();
+        this.restoreTravelForm();
+      }, error => {
+        this.errorMessage = error;
+      });
   }
 }

@@ -1,12 +1,8 @@
-<div style="width: 80%; height: 90%">
+<div class="container">
   <button class="cancel-button" (click)="closePopup.emit()">
     <i class="fa-solid fa-xmark"></i>
   </button>
-  <form [formGroup]="form" (ngSubmit)="onSubmit()"
-        style="height: 100%;
-        display: flex;
-        align-items: center;
-        flex-direction: column;">
+  <form [formGroup]="form" (ngSubmit)="onSubmit()" class="form-container">
 
     <h3>Komentarz</h3>
     <div class="did-floating-label-content" style="height: 100%">
@@ -29,7 +25,6 @@
 
     <div>
       <button style="margin-top: 10px" [ngClass]="isAdded ? 'is_active' : ''" type="submit" [disabled]="form.invalid">
-        <!--  TODO onSuccess-->
         <span>Dodaj</span>
         <div class="success">
           <svg version="1.1" viewBox="0 0 29.756 29.756" style="enable-background:new 0 0 29.756 29.756;"
