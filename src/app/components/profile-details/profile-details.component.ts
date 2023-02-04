@@ -9,6 +9,7 @@ import {UserModel} from "../../shared/models/user.model";
 import {forkJoin} from "rxjs";
 import {AuthService} from "../../services/auth.service";
 import firebase from "firebase/compat";
+import {FormUtils} from "../../shared/utils/form.utils";
 import User = firebase.User;
 
 @Component({
@@ -70,6 +71,7 @@ export class ProfileDetailsComponent implements OnInit {
   }
 
   onReservationClick(travel: Travel) {
+    console.log(travel);
     if (this.user) {
       this.addReservation(travel);
     } else {
@@ -77,7 +79,6 @@ export class ProfileDetailsComponent implements OnInit {
         this.addReservation(travel);
       });
     }
-    this.successSubmit = true;
   }
 
   deleteReservation(reservation: ReservationModel) {
@@ -117,6 +118,15 @@ export class ProfileDetailsComponent implements OnInit {
   }
 
   private addReservation(travel: Travel) {
-    this.reservationService.add(travel).subscribe();
+    if (!this.user) {
+      return;
+    }
+    this.reservationService.add(travel, this.user)
+      .subscribe(() => {
+        this.successSubmit = true
+        setTimeout(() => {
+          this.successSubmit = false;
+        }, FormUtils.RESET_TIMEOUT_MILISECONDS)
+      });
   }
 }

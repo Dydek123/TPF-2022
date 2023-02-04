@@ -4,7 +4,14 @@
   padding: 0.7em;
   margin: 1em;
   border-radius: 20px;
+}
+
+.clickable {
   cursor: pointer;
+}
+
+.clickable:hover {
+  background: #f5f3f3;
 }
 
 .user-cards-container {
@@ -63,10 +70,6 @@
 
 #details > i {
   color: #0C820A;
-}
-
-.user-card:hover {
-  background: #f5f3f3;
 }
 
 @media only screen and (max-device-width: 420px) {

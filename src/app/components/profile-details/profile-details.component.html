@@ -100,4 +100,6 @@
     </div>
   </div>
 </section>
-<app-my-reservations class="popup" *ngIf="showCommentPopup" (closePopup)="this.showCommentPopup = false"></app-my-reservations>
+<app-my-reservations class="popup" *ngIf="showCommentPopup"
+                     (closePopup)="this.showCommentPopup = false"
+                     [user]="user"></app-my-reservations>

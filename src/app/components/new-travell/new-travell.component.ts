@@ -15,6 +15,7 @@ export class NewTravellComponent implements OnInit {
   successSubmit: boolean;
   errorMessage: string;
 
+  private isFormInvalid: boolean;
   @ViewChild('firstInput') input: ElementRef;
 
   constructor(private formBuilder: FormBuilder,
@@ -31,9 +32,9 @@ export class NewTravellComponent implements OnInit {
       destination: ['', Validators.required],
       startPoint: ['', Validators.required],
       date: ['', Validators.required],
-      freeSpace: ['', Validators.required],
-      car: [],
-      duration: [],
+      freeSpace: ['', [Validators.required, Validators.min(1)]],
+      car: ['', Validators.required],
+      duration: ['', [Validators.required, Validators.min(1)]],
       userId: [],
       cost: ['', Validators.required]
     })
@@ -41,14 +42,19 @@ export class NewTravellComponent implements OnInit {
   }
 
   onSubmit() {
-    this.travellService.add(this.form.value)
-      .subscribe(() => {
-        this.successSubmit = true;
-        FormUtils.startTimer();
-        this.restoreTravelForm();
-      }, error => {
-        this.errorMessage = error;
-      });
+    if (this.form.valid) {
+      this.travellService.add(this.form.value)
+        .subscribe(() => {
+          this.successSubmit = true;
+          this.isFormInvalid = false;
+          FormUtils.startTimer();
+          this.restoreTravelForm();
+        }, error => {
+          this.errorMessage = error;
+        });
+    } else {
+      this.isFormInvalid = true;
+    }
   }
 
   private restoreTravelForm() {
@@ -63,5 +69,17 @@ export class NewTravellComponent implements OnInit {
     this.authService.getUser().subscribe(user => {
       this.form.patchValue({userId: user?.uid});
     });
+  }
+
+  test() {
+    console.log(this.form);
+  }
+
+  showErrorForRequiredInput(controlName: string): boolean {
+    return this.isFormInvalid && this.form.controls[controlName].errors?.['required'];
+  }
+
+  showErrorForMinusValue(controlName: string) {
+    return this.isFormInvalid && this.form.controls[controlName].errors?.['min'];
   }
 }
