@@ -15,7 +15,7 @@ There is a functionality for searching travel and rating the driver on a scale f
 * Grzegorz Pryjma
 * Kamil Maksymowicz
 
-##Technologies
+## Technologies
 * Angular
 * Firebase
 * JavaScript
@@ -23,21 +23,23 @@ There is a functionality for searching travel and rating the driver on a scale f
 * CSS3 (SCSS)
 * TypeScript
 
-##Functionalities
+## Functionalities
 * Booking trips from any place to any destination at any date
 * Creating trips
 * Rating and commenting drivers
 * Searching for any trips created
 * Signing In via Google Oauth
-* Editing user profile
 
-##Configuration
+## Configuration
 1. App configuration is included in a `enviroment.ts` file.
 2. Install all necessary tools and libraries from `package.json` using ```npm install```
 3. Install json-server with ```npm install -g json-server```
 4. Run database with ```json-server --watch db.json```
 5. Run application locally with a command ```ng serve```
 6. Open application on browser via ```http://localhost:4200/```
+
+## Project design
+https://www.figma.com/file/VknsItpBRNoRAoozwkKjDl/Untitled?node-id=0%3A1&t=pvT74IO0InCgBza7-1
 
 ## Site
 Main page
