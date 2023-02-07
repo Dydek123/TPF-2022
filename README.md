@@ -1,27 +1,71 @@
-# BlaBlaCar
+## BlaBlaCar
+The web application provides functionalities to create car rides from specific places to specific destinations.
+User is enabled to set departure place, destination, date of the journey, quantity of seats, price for each seat and vehicle model.
+There is a functionality for searching travel and rating the driver on a scale from one to five and commenting the driver.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.6.
+## Table of contents
+* [Team members](#team-members)
+* [Technologies](#technologies)
+* [Functionalities](#functionalities)
+* [Configuration](#configuration)
+* [Site](#configuration)
 
-## Development server
+# Team members
+* Dawid Mazurkiewicz
+* Grzegorz Pryjma
+* Kamil Maksymowicz
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+##Technologies
+* Angular
+* Firebase
+* JavaScript
+* HTML 5
+* CSS3 (SCSS)
+* TypeScript
 
-## Code scaffolding
+##Functionalities
+* Booking trips from any place to any destination at any date
+* Creating trips
+* Rating and commenting drivers
+* Searching for any trips created
+* Signing In via Google Oauth
+* Editing user profile
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+##Configuration
+1. App configuration is included in a `enviroment.ts` file.
+2. Install all necessary tools and libraries from `package.json` using ```npm install```
+3. Install json-server with ```npm install -g json-server```
+4. Run database with ```json-server --watch db.json```
+5. Run application locally with a command ```ng serve```
+6. Open application on browser via ```http://localhost:4200/```
 
-## Build
+## Site
+Main page
+<p align="center">
+  <img src="screenshots/main-page.png"/>
+</p>
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Create travel
+<p align="center">
+  <img src="screenshots/create-travel.png"/>
+</p>
 
-## Running unit tests
+Search travel
+<p align="center">
+  <img src="screenshots/search-travel.png"/>
+</p>
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+User profile
+<p align="center">
+  <img src="screenshots/my-profile.png"/>
+</p>
 
-## Running end-to-end tests
+Users
+<p align="center">
+  <img src="screenshots/users.png"/>
+</p>
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Rate user
+<p align="center">
+  <img src="screenshots/add-comment.png"/>
+</p>
